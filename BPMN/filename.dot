@@ -1,0 +1,16 @@
+digraph D {t1 [ shape = box ,style=filled,height= 0.1,label= "", xlabel="t1 " ] ;
+t2 [ shape = box ,style=filled,height= 0.1,label= "", xlabel="t2 " ] ;
+t4 [ shape = box ,style=filled,height= 0.1,label= "", xlabel="t4 " ] ;
+Gateway_0q4frag [shape = diamond ,label= "", xlabel="Gateway_0q4frag " ] ;
+Event_0na8fir [shape = doublecircle,bgcolor="black",label= "", xlabel="Event_0na8fir " ] ;
+StartEvent_0ueh1m2 [shape = circle ,label= "" , xlabel="StartEvent_0ueh1m2 " ] ;
+Gateway_09f8oaj [shape = diamond ,label= "", xlabel="Gateway_09f8oaj " ] ;
+t3 [ shape = box ,style=filled,height= 0.1,label= "", xlabel="t3 " ] ;
+t1-> { t2}
+t2-> { Gateway_09f8oaj}
+t4-> { Gateway_0q4frag}
+Gateway_0q4frag-> { Event_0na8fir}
+StartEvent_0ueh1m2-> { t1}
+Gateway_09f8oaj-> { t4,t3}
+t3-> { Gateway_0q4frag}
+}

@@ -1,0 +1,72 @@
+digraph D { 
+ rankdir=LR;
+ size="19,12" ; 
+ ratio="fill";
+ fontsize="15" 
+;Inform_the_acceptance_request_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Inform_
+the_
+acceptance_
+request_
+ " ] ;
+Manage_the_Application_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Manage_
+the_
+Application_
+ " ] ;
+Inform_the_rejection_of_request_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Inform_
+the_
+rejection_
+of_
+request_
+ " ] ;
+Application_ [shape = circle ,label= "" , xlabel="Application__
+ " ] ;
+Submit_leave_application_for_approval_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Submit_
+leave_
+application_
+for_
+approval_
+ " ] ;
+StartEvent_1jwn8rf_ [shape = circle ,label= "" , xlabel="StartEvent_1jwn8rf__
+ " ] ;
+E2_ [shape = circle ,label= "" , xlabel="E2__
+ " ] ;
+Evaluate_leave_application _ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Evaluate_
+leave_
+application _
+ " ] ;
+Take_the_leave_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Take_
+the_
+leave_
+ " ] ;
+E0_ [shape = circle ,label= "" , xlabel="E0__
+ " ] ;
+E3_ [shape = circle ,label= "" , xlabel="E3__
+ " ] ;
+Fill_in_the_leave_application_form_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Fill_
+in_
+the_
+leave_
+application_
+form_
+ " ] ;
+E1_ [shape = circle ,label= "" , xlabel="E1__
+ " ] ;
+EndEvent_1owo3ed_ [shape = circle ,label= "" , xlabel="EndEvent_1owo3ed__
+ " ] ;
+EndEvent_1tmnaws_ [shape = circle ,label= "" , xlabel="EndEvent_1tmnaws__
+ " ] ;
+Inform_the_acceptance_request_-> { E2_}
+ Manage_the_Application_-> { E3_}
+ Inform_the_rejection_of_request_-> { EndEvent_1owo3ed_}
+ Application_-> { Inform_the_acceptance_request_}
+ Application_-> { Inform_the_rejection_of_request_}
+ Submit_leave_application_for_approval_-> { E1_}
+ StartEvent_1jwn8rf_-> { Fill_in_the_leave_application_form_}
+ E2_-> { Manage_the_Application_}
+ Evaluate_leave_application _-> { Application_}
+ Take_the_leave_-> { EndEvent_1tmnaws_}
+ E0_-> { Submit_leave_application_for_approval_}
+ E3_-> { Take_the_leave_}
+ Fill_in_the_leave_application_form_-> { E0_}
+ E1_-> { Evaluate_leave_application _}
+ }

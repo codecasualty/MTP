@@ -1,0 +1,52 @@
+
+for each node from graph:	
+	if node is event:
+		displayEvent(node , graph)
+		check if output nodes and incoming nodes are mapped correctly
+	else if node is activity:
+		displayActivity(node , graph)
+		check if color coding is correct and indegree and outdegree is correct
+	else if node is gateway:
+		if(convergentGateway)
+			displayConvergent(node , graph)
+		else
+			displayDivergent(node, graph)
+		check if the places and transitions added are correct or not
+		
+
+displayEvent(Node , Graph)
+	if(isStartEvent)
+		displayStart(Node , Graph) //circle 
+	else if(isIntermediateEvent)
+		displayIntermediate(Node , Graph) //double circle color coding red
+	else //this means end evenet
+		displayEnd(Node , Graph) //double circle color coding black
+		
+displayActivity(Node , Graph)
+	if(isSimpleTask)
+		//task,service , send, receive , user,manual , business rule , script
+		displayTask(Node , Graph) //color coding for different tasks
+	else if (isSubprocess)
+		//loop,multiinstance 
+		displaySubprocess(Node , Graph)
+		
+displayConvergent(Node , Graph)	
+	if(Xor)
+		displayXORC(node , graph)
+	else if(parallel) //and
+		displayParallelC(node , graph)
+	else (inclusive) //or
+		displayInclusiveC(node , graph)
+
+displayDivergent(Node , Graph)
+	if(Xor)
+		displayXORD(node , graph)
+	else if(parallel) //and
+		displayParallelD(node , graph)
+	else (inclusive) //or
+		displayInclusiveD(node , graph)
+
+
+	
+		
+	

@@ -1,0 +1,2295 @@
+------------------------------
+------------------------------
+Printing Petri Net Elements printPetNet()
+[31m
+id = Task_1knmn6b
+[37m
+name = Send Nomination Form
+incoming Nodes = [StartEvent_1oyussr]
+incoming Edges = [1]
+outgoing Nodes = [E2, StartEvent_0elq50u]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Multinstance parallel
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent_0l75dor
+[37m
+name = StartEvent_0l75dor
+incoming Nodes = [Task_06eao0f]
+incoming Edges = [-1]
+outgoing Nodes = [Task_0c1vrth]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = ExclusiveGateway_11fyol4
+[37m
+name = Expert assistance required ?
+incoming Nodes = [Task_0tu9prz]
+incoming Edges = [1]
+outgoing Nodes = [Task_1j9ji7q, Task_0h6g78u]
+outgoing Edges = [1, 1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent_0g4c29x
+[37m
+name = Assessments Completed
+incoming Nodes = [Task_1ow05rt]
+incoming Edges = [1]
+outgoing Nodes = []
+outgoing Edges = []
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E0
+[37m
+name = E0
+incoming Nodes = [Task_0c1vrth]
+incoming Edges = [1]
+outgoing Nodes = [Task_1qz820d]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E1
+[37m
+name = E1
+incoming Nodes = [Task_0wp5f2s]
+incoming Edges = [1]
+outgoing Nodes = [Task_1k5c2m2]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E2
+[37m
+name = E2
+incoming Nodes = [Task_1knmn6b]
+incoming Edges = [1]
+outgoing Nodes = [Task_1nixpp0]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_06eao0f
+[37m
+name = Submit report with recommendations
+incoming Nodes = [E12]
+incoming Edges = [1]
+outgoing Nodes = [E13, StartEvent_0l75dor]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent_0elq50u
+[37m
+name = StartEvent_0elq50u
+incoming Nodes = [Task_1knmn6b]
+incoming Edges = [-1]
+outgoing Nodes = [Task_0wp5f2s]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent_171cthd
+[37m
+name = Nominations Forms sent
+incoming Nodes = [Task_1k5c2m2]
+incoming Edges = [1]
+outgoing Nodes = []
+outgoing Edges = []
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E3
+[37m
+name = E3
+incoming Nodes = [Task_13d88vf]
+incoming Edges = [1]
+outgoing Nodes = [Task_1ow05rt]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1k5c2m2
+[37m
+name = Send Nominee Completed Forms
+incoming Nodes = [E1]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent_171cthd, E5]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = E4
+[37m
+name = E4
+incoming Nodes = [Task_1qz820d]
+incoming Edges = [1]
+outgoing Nodes = [Task_1xhlb45]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E5
+[37m
+name = E5
+incoming Nodes = [Task_1k5c2m2]
+incoming Edges = [-1]
+outgoing Nodes = [Task_1nixpp0]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E6
+[37m
+name = E6
+incoming Nodes = [Task_1nixpp0]
+incoming Edges = [1]
+outgoing Nodes = [Task_12x36ou]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E7
+[37m
+name = E7
+incoming Nodes = [Task_1ow05rt, Task_1j9ji7q]
+incoming Edges = [-1, 1]
+outgoing Nodes = [Task_0262e4b]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0262e4b
+[37m
+name = Collect Candidates Work Assessment Reports
+incoming Nodes = [E7]
+incoming Edges = [1]
+outgoing Nodes = [E9]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Loop task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = E8
+[37m
+name = E8
+incoming Nodes = [Task_12x36ou]
+incoming Edges = [1]
+outgoing Nodes = [Task_0tu9prz]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E9
+[37m
+name = E9
+incoming Nodes = [Task_0262e4b]
+incoming Edges = [1]
+outgoing Nodes = [Task_0vf758v]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_13d88vf
+[37m
+name = Assess Candidates Work
+incoming Nodes = [StartEvent_0r0qd4a]
+incoming Edges = [1]
+outgoing Nodes = [E3]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Multinstance parallel
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_12x36ou
+[37m
+name = Screen and select Preliminary Candidates
+incoming Nodes = [E6]
+incoming Edges = [1]
+outgoing Nodes = [E8]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0wp5f2s
+[37m
+name = Identify Potential Nominees
+incoming Nodes = [StartEvent_0elq50u]
+incoming Edges = [1]
+outgoing Nodes = [E1]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent
+[37m
+name = StartEvent
+incoming Nodes = [E10]
+incoming Edges = []
+outgoing Nodes = [participant0]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent
+[37m
+name = EndEvent
+incoming Nodes = [participant0]
+incoming Edges = [1]
+outgoing Nodes = []
+outgoing Edges = []
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1j9ji7q
+[37m
+name = Send list of Selected Preliminary candidated
+incoming Nodes = [ExclusiveGateway_11fyol4]
+incoming Edges = [1]
+outgoing Nodes = [E7, StartEvent_0r0qd4a]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Multinstance parallel
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1xhlb45
+[37m
+name = Announce Nobel prize laureates
+incoming Nodes = [E4]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent_1kye7rx]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Multinstance parallel
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent_03mo8vo
+[37m
+name = EndEvent_03mo8vo
+incoming Nodes = [Task_01itmq4]
+incoming Edges = [1]
+outgoing Nodes = []
+outgoing Edges = []
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = participant0
+[37m
+name = participant0
+incoming Nodes = [StartEvent]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E11
+[37m
+name = E11
+incoming Nodes = [Task_0vf758v]
+incoming Edges = [1]
+outgoing Nodes = [Task_0h6g78u]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E10
+[37m
+name = E10
+incoming Nodes = [EndEvent_1kye7rx]
+incoming Edges = [1]
+outgoing Nodes = [StartEvent]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = true
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E13
+[37m
+name = E13
+incoming Nodes = [Task_06eao0f]
+incoming Edges = [1]
+outgoing Nodes = [Task_01itmq4]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E12
+[37m
+name = E12
+incoming Nodes = [Task_0h6g78u]
+incoming Edges = [1]
+outgoing Nodes = [Task_06eao0f]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1nixpp0
+[37m
+name = Collect Completed Forms
+incoming Nodes = [E2, E5]
+incoming Edges = [1, 1]
+outgoing Nodes = [E6]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Loop task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_01itmq4
+[37m
+name = Hold Nobel prize award ceremony
+incoming Nodes = [E13]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent_03mo8vo]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0c1vrth
+[37m
+name = Discuss Nominations
+incoming Nodes = [StartEvent_0l75dor]
+incoming Edges = [1]
+outgoing Nodes = [E0]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0h6g78u
+[37m
+name = Write recommendations report
+incoming Nodes = [E11, ExclusiveGateway_11fyol4]
+incoming Edges = [1, 1]
+outgoing Nodes = [E12]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0tu9prz
+[37m
+name = Determine need for expert Assistance
+incoming Nodes = [E8]
+incoming Edges = [1]
+outgoing Nodes = [ExclusiveGateway_11fyol4]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0vf758v
+[37m
+name = Select Final Candidates and their Works
+incoming Nodes = [E9]
+incoming Edges = [1]
+outgoing Nodes = [E11]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent_1oyussr
+[37m
+name = StartEvent_1oyussr
+incoming Nodes = []
+incoming Edges = []
+outgoing Nodes = [Task_1knmn6b]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1qz820d
+[37m
+name = Select Laureates
+incoming Nodes = [E0]
+incoming Edges = [1]
+outgoing Nodes = [E4]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1ow05rt
+[37m
+name = Send candidates Assessments Reports
+incoming Nodes = [E3]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent_0g4c29x, E7]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent_0r0qd4a
+[37m
+name = StartEvent_0r0qd4a
+incoming Nodes = [Task_1j9ji7q]
+incoming Edges = [-1]
+outgoing Nodes = [Task_13d88vf]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent_1kye7rx
+[37m
+name = Announcement Made
+incoming Nodes = [Task_1xhlb45]
+incoming Edges = [1]
+outgoing Nodes = [E10]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+list is empty
+[34m
+[0m
+
+Successfully wrote to the petrinet.dot file.
+------------------------------
+------------------------------
+Printing Petri Net Elements printPetNet()
+[31m
+id = Task_1knmn6b
+[37m
+name = Send Nomination Form
+incoming Nodes = [StartEvent_1oyussr]
+incoming Edges = [1]
+outgoing Nodes = [E2, StartEvent_0elq50u]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Multinstance parallel
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent_0l75dor
+[37m
+name = StartEvent_0l75dor
+incoming Nodes = [Task_06eao0f]
+incoming Edges = [-1]
+outgoing Nodes = [Task_0c1vrth]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = ExclusiveGateway_11fyol4
+[37m
+name = Expert assistance required ?
+incoming Nodes = [Task_0tu9prz]
+incoming Edges = [1]
+outgoing Nodes = [Task_1j9ji7q, Task_0h6g78u]
+outgoing Edges = [1, 1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent_0g4c29x
+[37m
+name = Assessments Completed
+incoming Nodes = [Task_1ow05rt]
+incoming Edges = [1]
+outgoing Nodes = []
+outgoing Edges = []
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E0
+[37m
+name = E0
+incoming Nodes = [Task_0c1vrth]
+incoming Edges = [1]
+outgoing Nodes = [Task_1qz820d]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E1
+[37m
+name = E1
+incoming Nodes = [Task_0wp5f2s]
+incoming Edges = [1]
+outgoing Nodes = [Task_1k5c2m2]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E2
+[37m
+name = E2
+incoming Nodes = [Task_1knmn6b]
+incoming Edges = [1]
+outgoing Nodes = [Task_1nixpp0]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_06eao0f
+[37m
+name = Submit report with recommendations
+incoming Nodes = [E12]
+incoming Edges = [1]
+outgoing Nodes = [E13, StartEvent_0l75dor]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent_0elq50u
+[37m
+name = StartEvent_0elq50u
+incoming Nodes = [Task_1knmn6b]
+incoming Edges = [-1]
+outgoing Nodes = [Task_0wp5f2s]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent_171cthd
+[37m
+name = Nominations Forms sent
+incoming Nodes = [Task_1k5c2m2]
+incoming Edges = [1]
+outgoing Nodes = []
+outgoing Edges = []
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E3
+[37m
+name = E3
+incoming Nodes = [Task_13d88vf]
+incoming Edges = [1]
+outgoing Nodes = [Task_1ow05rt]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1k5c2m2
+[37m
+name = Send Nominee Completed Forms
+incoming Nodes = [E1]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent_171cthd, E5]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = E4
+[37m
+name = E4
+incoming Nodes = [Task_1qz820d]
+incoming Edges = [1]
+outgoing Nodes = [Task_1xhlb45]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E5
+[37m
+name = E5
+incoming Nodes = [Task_1k5c2m2]
+incoming Edges = [-1]
+outgoing Nodes = [Task_1nixpp0]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E6
+[37m
+name = E6
+incoming Nodes = [Task_1nixpp0]
+incoming Edges = [1]
+outgoing Nodes = [Task_12x36ou]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E7
+[37m
+name = E7
+incoming Nodes = [Task_1ow05rt, Task_1j9ji7q]
+incoming Edges = [-1, 1]
+outgoing Nodes = [Task_0262e4b]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0262e4b
+[37m
+name = Collect Candidates Work Assessment Reports
+incoming Nodes = [E7]
+incoming Edges = [1]
+outgoing Nodes = [E9]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Loop task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = E8
+[37m
+name = E8
+incoming Nodes = [Task_12x36ou]
+incoming Edges = [1]
+outgoing Nodes = [Task_0tu9prz]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E9
+[37m
+name = E9
+incoming Nodes = [Task_0262e4b]
+incoming Edges = [1]
+outgoing Nodes = [Task_0vf758v]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_13d88vf
+[37m
+name = Assess Candidates Work
+incoming Nodes = [StartEvent_0r0qd4a]
+incoming Edges = [1]
+outgoing Nodes = [E3]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Multinstance parallel
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_12x36ou
+[37m
+name = Screen and select Preliminary Candidates
+incoming Nodes = [E6]
+incoming Edges = [1]
+outgoing Nodes = [E8]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0wp5f2s
+[37m
+name = Identify Potential Nominees
+incoming Nodes = [StartEvent_0elq50u]
+incoming Edges = [1]
+outgoing Nodes = [E1]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent
+[37m
+name = StartEvent
+incoming Nodes = [E10]
+incoming Edges = []
+outgoing Nodes = [participant0]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent
+[37m
+name = EndEvent
+incoming Nodes = [participant0]
+incoming Edges = [1]
+outgoing Nodes = []
+outgoing Edges = []
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1j9ji7q
+[37m
+name = Send list of Selected Preliminary candidated
+incoming Nodes = [ExclusiveGateway_11fyol4]
+incoming Edges = [1]
+outgoing Nodes = [E7, StartEvent_0r0qd4a]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Multinstance parallel
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1xhlb45
+[37m
+name = Announce Nobel prize laureates
+incoming Nodes = [E4]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent_1kye7rx]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Multinstance parallel
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent_03mo8vo
+[37m
+name = EndEvent_03mo8vo
+incoming Nodes = [Task_01itmq4]
+incoming Edges = [1]
+outgoing Nodes = []
+outgoing Edges = []
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = participant0
+[37m
+name = participant0
+incoming Nodes = [StartEvent]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E11
+[37m
+name = E11
+incoming Nodes = [Task_0vf758v]
+incoming Edges = [1]
+outgoing Nodes = [Task_0h6g78u]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E10
+[37m
+name = E10
+incoming Nodes = [EndEvent_1kye7rx]
+incoming Edges = [1]
+outgoing Nodes = [StartEvent]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = true
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E13
+[37m
+name = E13
+incoming Nodes = [Task_06eao0f]
+incoming Edges = [1]
+outgoing Nodes = [Task_01itmq4]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E12
+[37m
+name = E12
+incoming Nodes = [Task_0h6g78u]
+incoming Edges = [1]
+outgoing Nodes = [Task_06eao0f]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1nixpp0
+[37m
+name = Collect Completed Forms
+incoming Nodes = [E2, E5]
+incoming Edges = [1, 1]
+outgoing Nodes = [E6]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Loop task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_01itmq4
+[37m
+name = Hold Nobel prize award ceremony
+incoming Nodes = [E13]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent_03mo8vo]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0c1vrth
+[37m
+name = Discuss Nominations
+incoming Nodes = [StartEvent_0l75dor]
+incoming Edges = [1]
+outgoing Nodes = [E0]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0h6g78u
+[37m
+name = Write recommendations report
+incoming Nodes = [E11, ExclusiveGateway_11fyol4]
+incoming Edges = [1, 1]
+outgoing Nodes = [E12]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0tu9prz
+[37m
+name = Determine need for expert Assistance
+incoming Nodes = [E8]
+incoming Edges = [1]
+outgoing Nodes = [ExclusiveGateway_11fyol4]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0vf758v
+[37m
+name = Select Final Candidates and their Works
+incoming Nodes = [E9]
+incoming Edges = [1]
+outgoing Nodes = [E11]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent_1oyussr
+[37m
+name = StartEvent_1oyussr
+incoming Nodes = []
+incoming Edges = []
+outgoing Nodes = [Task_1knmn6b]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1qz820d
+[37m
+name = Select Laureates
+incoming Nodes = [E0]
+incoming Edges = [1]
+outgoing Nodes = [E4]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1ow05rt
+[37m
+name = Send candidates Assessments Reports
+incoming Nodes = [E3]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent_0g4c29x, E7]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent_0r0qd4a
+[37m
+name = StartEvent_0r0qd4a
+incoming Nodes = [Task_1j9ji7q]
+incoming Edges = [-1]
+outgoing Nodes = [Task_13d88vf]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent_1kye7rx
+[37m
+name = Announcement Made
+incoming Nodes = [Task_1xhlb45]
+incoming Edges = [1]
+outgoing Nodes = [E10]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+list is empty
+[34m
+[0m
+
+Successfully wrote to the petrinet.dot file.
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is YES
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+[32m
+for this particular event the value is NO
+[0m
+------------------------------
+------------------------------
+Printing Petri Net Elements printPetNet()
+[31m
+id = Task_1knmn6b
+[37m
+name = Send Nomination Form
+incoming Nodes = [StartEvent_1oyussr]
+incoming Edges = [1]
+outgoing Nodes = [E2, StartEvent_0elq50u]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Multinstance parallel
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent_0l75dor
+[37m
+name = StartEvent_0l75dor
+incoming Nodes = [Task_06eao0f]
+incoming Edges = [-1]
+outgoing Nodes = [Task_0c1vrth]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = ExclusiveGateway_11fyol4
+[37m
+name = Expert assistance required ?
+incoming Nodes = [Task_0tu9prz]
+incoming Edges = [1]
+outgoing Nodes = [Task_1j9ji7q, Task_0h6g78u]
+outgoing Edges = [1, 1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent_0g4c29x
+[37m
+name = Assessments Completed
+incoming Nodes = [Task_1ow05rt]
+incoming Edges = [1]
+outgoing Nodes = []
+outgoing Edges = []
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E0
+[37m
+name = E0
+incoming Nodes = [Task_0c1vrth]
+incoming Edges = [1]
+outgoing Nodes = [Task_1qz820d]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E1
+[37m
+name = E1
+incoming Nodes = [Task_0wp5f2s]
+incoming Edges = [1]
+outgoing Nodes = [Task_1k5c2m2]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E2
+[37m
+name = E2
+incoming Nodes = [Task_1knmn6b]
+incoming Edges = [1]
+outgoing Nodes = [Task_1nixpp0]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_06eao0f
+[37m
+name = Submit report with recommendations
+incoming Nodes = [E12]
+incoming Edges = [1]
+outgoing Nodes = [E13, StartEvent_0l75dor]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent_0elq50u
+[37m
+name = StartEvent_0elq50u
+incoming Nodes = [Task_1knmn6b]
+incoming Edges = [-1]
+outgoing Nodes = [Task_0wp5f2s]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent_171cthd
+[37m
+name = Nominations Forms sent
+incoming Nodes = [Task_1k5c2m2]
+incoming Edges = [1]
+outgoing Nodes = []
+outgoing Edges = []
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E3
+[37m
+name = E3
+incoming Nodes = [Task_13d88vf]
+incoming Edges = [1]
+outgoing Nodes = [Task_1ow05rt]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1k5c2m2
+[37m
+name = Send Nominee Completed Forms
+incoming Nodes = [E1]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent_171cthd, E5]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = E4
+[37m
+name = E4
+incoming Nodes = [Task_1qz820d]
+incoming Edges = [1]
+outgoing Nodes = [Task_1xhlb45]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E5
+[37m
+name = E5
+incoming Nodes = [Task_1k5c2m2]
+incoming Edges = [-1]
+outgoing Nodes = [Task_1nixpp0]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E6
+[37m
+name = E6
+incoming Nodes = [Task_1nixpp0]
+incoming Edges = [1]
+outgoing Nodes = [Task_12x36ou]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E7
+[37m
+name = E7
+incoming Nodes = [Task_1ow05rt, Task_1j9ji7q]
+incoming Edges = [-1, 1]
+outgoing Nodes = [Task_0262e4b]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0262e4b
+[37m
+name = Collect Candidates Work Assessment Reports
+incoming Nodes = [E7]
+incoming Edges = [1]
+outgoing Nodes = [E9]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Loop task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = E8
+[37m
+name = E8
+incoming Nodes = [Task_12x36ou]
+incoming Edges = [1]
+outgoing Nodes = [Task_0tu9prz]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E9
+[37m
+name = E9
+incoming Nodes = [Task_0262e4b]
+incoming Edges = [1]
+outgoing Nodes = [Task_0vf758v]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_13d88vf
+[37m
+name = Assess Candidates Work
+incoming Nodes = [StartEvent_0r0qd4a]
+incoming Edges = [1]
+outgoing Nodes = [E3]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Multinstance parallel
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_12x36ou
+[37m
+name = Screen and select Preliminary Candidates
+incoming Nodes = [E6]
+incoming Edges = [1]
+outgoing Nodes = [E8]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0wp5f2s
+[37m
+name = Identify Potential Nominees
+incoming Nodes = [StartEvent_0elq50u]
+incoming Edges = [1]
+outgoing Nodes = [E1]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent
+[37m
+name = StartEvent
+incoming Nodes = [E10]
+incoming Edges = []
+outgoing Nodes = [participant0]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent
+[37m
+name = EndEvent
+incoming Nodes = [participant0]
+incoming Edges = [1]
+outgoing Nodes = []
+outgoing Edges = []
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1j9ji7q
+[37m
+name = Send list of Selected Preliminary candidated
+incoming Nodes = [ExclusiveGateway_11fyol4]
+incoming Edges = [1]
+outgoing Nodes = [E7, StartEvent_0r0qd4a]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Multinstance parallel
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1xhlb45
+[37m
+name = Announce Nobel prize laureates
+incoming Nodes = [E4]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent_1kye7rx]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Multinstance parallel
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent_03mo8vo
+[37m
+name = EndEvent_03mo8vo
+incoming Nodes = [Task_01itmq4]
+incoming Edges = [1]
+outgoing Nodes = []
+outgoing Edges = []
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = participant0
+[37m
+name = participant0
+incoming Nodes = [StartEvent]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E11
+[37m
+name = E11
+incoming Nodes = [Task_0vf758v]
+incoming Edges = [1]
+outgoing Nodes = [Task_0h6g78u]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E10
+[37m
+name = E10
+incoming Nodes = [EndEvent_1kye7rx]
+incoming Edges = [1]
+outgoing Nodes = [StartEvent]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = true
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E13
+[37m
+name = E13
+incoming Nodes = [Task_06eao0f]
+incoming Edges = [1]
+outgoing Nodes = [Task_01itmq4]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = E12
+[37m
+name = E12
+incoming Nodes = [Task_0h6g78u]
+incoming Edges = [1]
+outgoing Nodes = [Task_06eao0f]
+outgoing Edges = [1]
+Is this node Eplace = true
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1nixpp0
+[37m
+name = Collect Completed Forms
+incoming Nodes = [E2, E5]
+incoming Edges = [1, 1]
+outgoing Nodes = [E6]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Loop task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_01itmq4
+[37m
+name = Hold Nobel prize award ceremony
+incoming Nodes = [E13]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent_03mo8vo]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0c1vrth
+[37m
+name = Discuss Nominations
+incoming Nodes = [StartEvent_0l75dor]
+incoming Edges = [1]
+outgoing Nodes = [E0]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0h6g78u
+[37m
+name = Write recommendations report
+incoming Nodes = [E11, ExclusiveGateway_11fyol4]
+incoming Edges = [1, 1]
+outgoing Nodes = [E12]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0tu9prz
+[37m
+name = Determine need for expert Assistance
+incoming Nodes = [E8]
+incoming Edges = [1]
+outgoing Nodes = [ExclusiveGateway_11fyol4]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_0vf758v
+[37m
+name = Select Final Candidates and their Works
+incoming Nodes = [E9]
+incoming Edges = [1]
+outgoing Nodes = [E11]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent_1oyussr
+[37m
+name = StartEvent_1oyussr
+incoming Nodes = []
+incoming Edges = []
+outgoing Nodes = [Task_1knmn6b]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1qz820d
+[37m
+name = Select Laureates
+incoming Nodes = [E0]
+incoming Edges = [1]
+outgoing Nodes = [E4]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = Task_1ow05rt
+[37m
+name = Send candidates Assessments Reports
+incoming Nodes = [E3]
+incoming Edges = [1]
+outgoing Nodes = [EndEvent_0g4c29x, E7]
+outgoing Edges = [1, -1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = false
+Is this node Transition = true
+Is this node MessageFlow = false
+type of node is Normal task
+cardinality of the above node is  1
+is this timer event = NO
+------------------------------
+[31m
+id = StartEvent_0r0qd4a
+[37m
+name = StartEvent_0r0qd4a
+incoming Nodes = [Task_1j9ji7q]
+incoming Edges = [-1]
+outgoing Nodes = [Task_13d88vf]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+[31m
+id = EndEvent_1kye7rx
+[37m
+name = Announcement Made
+incoming Nodes = [Task_1xhlb45]
+incoming Edges = [1]
+outgoing Nodes = [E10]
+outgoing Edges = [1]
+Is this node Eplace = false
+Is this node Etransition = false
+Is this node Place = true
+Is this node Transition = false
+Is this node MessageFlow = false
+type of node is Not task
+cardinality of the above node is  0
+is this timer event = NO
+------------------------------
+list is empty
+[34m
+[0m
+
+Successfully wrote to the petrinet.dot file.

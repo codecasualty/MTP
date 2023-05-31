@@ -1,0 +1,29 @@
+digraph M {
+evolve [shape=box,height=0.1,width=0.6];
+evolveo [shape=box,height=0.1,width=0.6, label="evolve"];
+start [shape=box,height=0.1,width=0.6];
+pub [shape=box,height=0.1,width=0.6];
+T5 [shape=box,height=0.1,width=0.6];
+P0 [label="",xlabel="P0"];
+eidknown [label="",xlabel="eidknown"];
+P2 [label="",xlabel="P2"];
+P3 [label="",xlabel="P3"];
+P4 [label="",xlabel="P4"];
+rendezvous [label="",xlabel="rendezvous"];
+
+P0 -> evolve;
+P0 -> start; 
+evolve -> eidknown;
+start -> eidknown;
+eidknown -> pub;
+pub -> P2;
+P2 -> evolveo ;
+evolveo -> P2;
+evolveo -> P3;
+P3 -> evolve;
+evolve -> P4;
+evolveo -> P4;
+P4 -> T5 [label="5"];
+T5 -> rendezvous;
+P2 -> T5;
+}
