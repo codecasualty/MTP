@@ -141,7 +141,7 @@
         <di:waypoint x="855" y="481" />
         <di:waypoint x="855" y="600" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="863" y="572" width="19" height="14" />
+          <dc:Bounds x="862" y="561" width="19" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Task_1osckm7_di" bpmnElement="Task_1osckm7">

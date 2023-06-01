@@ -3,6 +3,7 @@ import java.util.*;
 public class PetriNetNode{
     private ArrayList<String> incomingNodes ;
     private ArrayList<String> outgoingNodes ;
+    private ArrayList<String> outgoingEdgesNames ;    
     private ArrayList<Integer> incomingEdges;
     private ArrayList<Integer> outgoingEdges;
     private String name , id;
@@ -14,11 +15,21 @@ public class PetriNetNode{
         outgoingNodes = new ArrayList<>();
         incomingEdges = new ArrayList<>();
         outgoingEdges = new ArrayList<>();
+        outgoingEdgesNames = new ArrayList<>();
         name = "";
         isPlace = isEPlace = isTransition = isETransition = isMessageFlow= isTimer = false;
         taskType = -1;
         cardinality = 0;
         isSpecialNode = false;
+    }
+
+
+    public ArrayList<String> getOutgoingEdgesName(){
+        return outgoingEdgesNames;
+    }
+
+    public void setOutgoingEdgesName(String str){
+        this.outgoingEdgesNames.add(str);
     }
 
     /**

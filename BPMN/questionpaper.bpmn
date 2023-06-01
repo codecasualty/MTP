@@ -26,7 +26,7 @@
       <bpmn:incoming>SequenceFlow_0vk6s9y</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1u8eswi</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:exclusiveGateway id="ExclusiveGateway_0qlq23j" name="is Merging correct ?">
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0qlq23j" name="is Review correct ?">
       <bpmn:incoming>SequenceFlow_1u8eswi</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_04tqhzy</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_1i7u9yu</bpmn:outgoing>
@@ -88,7 +88,7 @@
       <bpmndi:BPMNShape id="ExclusiveGateway_0qlq23j_di" bpmnElement="ExclusiveGateway_0qlq23j" isMarkerVisible="true">
         <dc:Bounds x="1150" y="341" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1132" y="311" width="88" height="27" />
+          <dc:Bounds x="1134" y="311" width="84" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1u8eswi_di" bpmnElement="SequenceFlow_1u8eswi">

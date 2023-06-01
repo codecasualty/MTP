@@ -106,9 +106,9 @@ class Split{
             //map all petri net node one by one from map generated
             
             HashMap<String , PetriNetNode> PetriNetmap = generatePetriNet(map);
-            Utility.color("blue");
-            printPetriNet(PetriNetmap);
-            Utility.color("reset");
+            // Utility.color("red");
+            printGraph();
+            // Utility.color("reset");
             NodeModification nodeModification = new NodeModification();
             // nodeModification.parallelMultinstance(PetriNetmap, parallelMultinstance);
             // nodeModification.timerEvents(PetriNetmap, timerEvents);
@@ -118,6 +118,8 @@ class Split{
             nodeModification.edgeBalancing(participantWiseOrdering, PetriNetmap);
             GeneratePetriNet petri = new GeneratePetriNet();
             petri.generate(PetriNetmap);
+            GenerateBPMN bpmn = new GenerateBPMN();
+            bpmn.generate(map);
             sc.close();
             
         }  
@@ -229,6 +231,7 @@ class Split{
             System.out.println("incoming Edges = "+value.getIncomingEdges());
             System.out.println("outgoing Nodes = "+value.getOutgoingNodes());
             System.out.println("outgoing Edges = "+value.getOutgoingEdges());
+            System.out.println("outgoing Edges = "+value.getOutgoingEdgesName());
             System.out.println("this node is "+typeOfNode(value));
             // System.out.println("Is this node Eplace = "+ (value.getisEPlace() == true));
             // System.out.println("Is this node Etransition = "+(value.getisETransition() == true));
@@ -365,6 +368,7 @@ class Split{
             currentPetriNetNode.setCardinality(currGraph.getCardinality());
             currentPetriNetNode.setId(currNode);
             currentPetriNetNode.setIsTimerEvent(currGraph.getIsTimerEvent());
+            
             // if(currGraph.getTaskType() == 2 && currGraph.getCardinality() > 1)parallelMultinstance.add(currNode);
             // if(currGraph.getTaskType() == 3 && currGraph.getCardinality() > 1)sequentialMultinstanceLoop.add(currNode);
             // if(currGraph.getTaskType() == 1)sequentialMultinstanceLoop.add(currNode);
@@ -387,6 +391,8 @@ class Split{
  *          march 30 adding outgoingedges for current incoming nodes
  */
             ArrayList<Integer> outgoingEdgesCurrNode = map.get(currNode).getOutgoingEdges();
+
+            ArrayList<String> outgoingEdgesCurrNodeNames = map.get(currNode).getOutgoingEdgesName();
             // System.out.println("Node val = "+currNode);
             // System.out.println("outgoingNodes = "+outgoingNodesCurrNode);
             // System.out.println("outgoingEdges = "+outgoingEdgesCurrNode);
@@ -394,6 +400,7 @@ class Split{
             //here 1 denotes transition and 0 denotes place
             //added there transition and check need of Eplace and Etransitions 
             int start = 0;
+            int edgeName = 0;
             for(String outgoingNode : outgoingNodesCurrNode){
 
                 String runningNode = outgoingNode;
@@ -412,17 +419,19 @@ class Split{
                 if(curr_type == 1 && runningNode_type == 1){
                     if(visited.contains(runningNode)){
                         ArrayList<String> incomingNodesRunningNode = runningPetriNetNode.getIncomingNodes();//as it was transition then incoming nodes will be places
+                        ArrayList<String> incomingNodesRunningNodeEdges = runningPetriNetNode.getOutgoingEdgesName();
                         // ArrayList<Integer> incomingEdgesRunningNode = runningPetriNetNode.getIncomingEdges();//as it was transition then incoming nodes will be places
                         // System.out.println("runnning node "+runningNode);
                         // System.out.println(" incoming node from running Node "+incomingNodesRunningNode);
                         // System.out.println(" incoming edge from running Node "+incomingEdgesRunningNode);
                         //there will be edge from currNode to all these incomingNodes of running Node
                         // endl();
-                        // int init = 0;
+                        int init = 0;
                         for(String incoming:incomingNodesRunningNode){
                             currentPetriNetNode.setOutgoingNodes(incoming);
                             //march 30
                             currentPetriNetNode.setOutgoingEdges(edgeType);
+                            currentPetriNetNode.setOutgoingEdgesName(incomingNodesRunningNodeEdges.get(init++));
                             petrinet.get(incoming).setIncomingNode(currNode);
                             petrinet.get(incoming).setIncomingEdges(1);
                         }
@@ -440,12 +449,14 @@ class Split{
                         // march 30
                         // adding type on basis of current and running node edges
                         currentPetriNetNode.setOutgoingEdges(edgeType);
+                        currentPetriNetNode.setOutgoingEdgesName("");//setting empty to avoid extra or less names i.e. the data should match with other edges
 
                         Eplace.setOutgoingNodes(runningNode);//add this transition as outgoing transition to current Eplace
                         Eplace.setIncomingNode(currNode);//for this Eplace the incoing node is currentNode
                         //march 30
                         Eplace.setIncomingEdges(edgeType);
                         Eplace.setOutgoingEdges(1);//direct edge
+                        Eplace.setOutgoingEdgesName("");//same reason to match the data with other nodes and edges
                         runningPetriNetNode.setIncomingNode(Eplace.getId()); //for our running node the incoming place is Eplace
                         runningPetriNetNode.setIncomingEdges(1);
                         Enodes++;
@@ -456,6 +467,11 @@ class Split{
 
                     currentPetriNetNode.setOutgoingNodes(runningNode);
                     currentPetriNetNode.setOutgoingEdges(edgeType);//march 30
+                    //added on jun1
+                    if(edgeName < outgoingEdgesCurrNodeNames.size())
+                    currentPetriNetNode.setOutgoingEdgesName(outgoingEdgesCurrNodeNames.get(edgeName++));
+                    else
+                    currentPetriNetNode.setOutgoingEdgesName("");
                     runningPetriNetNode.setIncomingNode(currNode);
                     runningPetriNetNode.setIncomingEdges(edgeType);//march 30
                 }
@@ -481,11 +497,11 @@ class Split{
                             currentPetriNetNode.setOutgoingNodes(Etransition.getName()); //add (Eplace) this node as outgoing node to current petri net transition 
                             //march 30
                             currentPetriNetNode.setOutgoingEdges(1);
-
+                            currentPetriNetNode.setOutgoingEdgesName("");
                             Etransition.setOutgoingNodes(incoming);//add this transition as outgoing transition to current Eplace
                             //march 30
                             Etransition.setOutgoingEdges(newtype);
-
+                            Etransition.setOutgoingEdgesName("");
                             Etransition.setIncomingNode(currNode);
                             //march 30
                             Etransition.setIncomingEdges(1);
@@ -503,6 +519,10 @@ class Split{
                     else{
                         currentPetriNetNode.setOutgoingNodes(runningNode);
                         currentPetriNetNode.setOutgoingEdges(edgeType);//march 30
+                        if(edgeName < outgoingEdgesCurrNodeNames.size())
+                        currentPetriNetNode.setOutgoingEdgesName(outgoingEdgesCurrNodeNames.get(edgeName++));
+                        else 
+                        currentPetriNetNode.setOutgoingEdgesName("");
                         runningPetriNetNode.setIncomingNode(currNode);
                         runningPetriNetNode.setIncomingEdges(edgeType);//march 30
                     }
@@ -514,6 +534,7 @@ class Split{
                     Etransition.setName("E"+Enodes);
                     petrinet.put(Etransition.getName() , Etransition);//add this Eplace into petri net nodes
                     currentPetriNetNode.setOutgoingNodes(Etransition.getName()); //add (Eplace) this node as outgoing node to current petri net transition 
+                    currentPetriNetNode.setOutgoingEdgesName("");
                     Etransition.setOutgoingNodes(runningNode);//add this transition as outgoing transition to current Eplace
                     Etransition.setIncomingNode(currNode);
                     runningPetriNetNode.setIncomingNode(Etransition.getName());
@@ -521,6 +542,7 @@ class Split{
                     //following 4 lines are added on march 30
                     currentPetriNetNode.setOutgoingEdges(edgeType);
                     Etransition.setOutgoingEdges(1);
+                    Etransition.setOutgoingEdgesName("");
                     Etransition.setIncomingEdges(edgeType);
                     runningPetriNetNode.setIncomingEdges(1);
 
@@ -776,12 +798,17 @@ class Split{
         for(Map.Entry<String , Graph> ele : map.entrySet()){
             String key = ele.getKey() ;
             Graph value = ele.getValue();
+            Utility.color("red");
             System.out.println(key);
+            Utility.color("reset");
             System.out.println("name = "+value.name);
             System.out.println("incoming Nodes = "+value.getIncomingNodes());
             System.out.println("incoming Edges = "+value.getIncomingEdges());
             System.out.println("outgoing Node = "+value.getOutgoingNodes());
             System.out.println("outgoing Edges = "+value.getOutgoingEdges());
+            System.out.println("outgoing Edges Names = "+value.getOutgoingEdgesName());
+            System.out.println("Sizes of list are equal  = "+(value.getOutgoingEdgesName().size() == value.getOutgoingNodes().size() && value.getOutgoingNodes().size() == value.getOutgoingEdges().size()));
+            System.out.println("values of list are  = "+(value.getOutgoingEdgesName().size() +"  "+ value.getOutgoingNodes().size()+" "+ value.getOutgoingEdges().size()));
             System.out.println("Petri Net style = "+value.getPetriNetStyle());
             System.out.println("type of task = "+value.getTaskType());
             System.out.println("cardinality of task = "+value.getCardinality());
@@ -828,6 +855,7 @@ class Split{
                     // break;
                     map.get(values).setOutgoingNodes("participant"+participants);
                     map.get(values).setOutgoingEdges(-1);
+                    map.get(values).setOutgoingEdgesName(arr[i-1][1]);
                     if(!map.containsKey("participant"+participants))participantOccurence.add("participant"+participants);
                     map.put("participant"+participants , ob);
                     
@@ -838,13 +866,19 @@ class Split{
                     // out.printLine("Subprocess is sourceRef"+map.get(values).name);
                     ArrayList<String> outcomingNodes = map.get(values).getOutgoingNodes();
                     ArrayList<Integer> outcomingEdges = map.get(values).getOutgoingEdges();
+                    ArrayList<String> outcomingEdgesNames = map.get(values).getOutgoingEdgesName();
                     int ptr = 0;
                     for(String str : outcomingNodes){
                         map.get(str).setOutgoingNodes(arr[i+1][1]);
-                        map.get(str).setOutgoingEdges(outcomingEdges.get(ptr++));
+                        map.get(str).setOutgoingEdges(outcomingEdges.get(ptr));
                         /*setting incoming nodes and edges in both nodes to avoid reprocessing in main function which 
                          * removes unnecessary Place to place or Transition to transition errors
                          */
+                        if(ptr < outcomingEdgesNames.size())
+                        map.get(str).setOutgoingEdgesName(outcomingEdgesNames.get(ptr));
+                        else 
+                        map.get(str).setOutgoingEdgesName("");
+                        ptr++;
                         map.get(arr[i+1][1]).setIncomingNode(str);
                         map.get(arr[i+1][1]).setIncomingEdges(1);
                     }
@@ -853,13 +887,19 @@ class Split{
                 }
                 else {
                  map.get(values).setOutgoingNodes(arr[i+1][1]);
+                 /** adding names of edges */
+                 map.get(values).setOutgoingEdgesName(arr[i-1][1]);
                 }
 
                 if(arr[0][1].contains("MessageFlow")){
                     map.get(values).setOutgoingEdges(-1);
+                    // map.get(values).setOutgoingEdgesName("");
                     // map.get(values).setMessageFlow();
                 }
-                else map.get(values).setOutgoingEdges(1);
+                else{
+                    map.get(values).setOutgoingEdges(1);
+                    // map.get(values).setOutgoingEdgesName("");
+                } 
                 // endl();
                 // System.out.println("new node "+values);
                 // System.out.println("\u001B[31m"); //RED
@@ -876,6 +916,7 @@ class Split{
                     ob.setName("participant"+participants);
                     ob.setOutgoingNodes(values);
                     ob.setOutgoingEdges(-1);//it is message flow type
+                    map.get(values).setOutgoingEdgesName(arr[i-2][1]);
                     ob.setPetriNetStyle(1);//it is transition
                     // map.remove(arr[0][1]);
                     // break;
@@ -891,12 +932,16 @@ class Split{
                     System.out.println("Subprocess is targetRef"+map.get(values).name);
                     ArrayList<String> incomingNodes= map.get(values).getIncomingNodes();
                     ArrayList<Integer> incomingEdges = map.get(values).getIncomingEdges();
+                    ArrayList<String> outgoingEdgesName = map.get(values).getOutgoingEdgesName();
                     int ptr = 0;
                     for(String str : incomingNodes){
                         map.get(str).setIncomingNode(arr[i-1][1]);
+
                         map.get(str).setIncomingEdges(incomingEdges.get(ptr++));
+                        
                         map.get(arr[i-1][1]).setOutgoingNodes(str);
                         map.get(arr[i-1][1]).setOutgoingEdges(1);
+                        map.get(arr[i-1][1]).setOutgoingEdgesName("");
                     }
                     print(map.get(values));
                     System.out.println("\u001b[0m ");
@@ -906,6 +951,7 @@ class Split{
 
                 if(arr[0][1].contains("MessageFlow")){
                     map.get(values).setIncomingEdges(-1);
+                    map.get(values).setOutgoingEdgesName("");
                     // map.get(values).setMessageFlow();
                 }
                 else map.get(values).setIncomingEdges(1);

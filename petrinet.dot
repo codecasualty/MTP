@@ -3,70 +3,49 @@ digraph D {
  size="19,12" ; 
  ratio="fill";
  fontsize="15" 
-;Inform_the_acceptance_request_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Inform_
-the_
-acceptance_
-request_
+;eat_meal_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="eat_
+meal_
  " ] ;
-Manage_the_Application_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Manage_
-the_
-Application_
+Prepare_Salad_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Prepare_
+Salad_
  " ] ;
-Inform_the_rejection_of_request_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Inform_
-the_
-rejection_
-of_
-request_
+ExclusiveGateway_0hw25t1_ [shape = circle ,label= "" , xlabel="ExclusiveGateway_0hw25t1__
  " ] ;
-Application_ [shape = circle ,label= "" , xlabel="Application__
+Cook_Steak_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Cook_
+Steak_
  " ] ;
-Submit_leave_application_for_approval_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Submit_
-leave_
-application_
-for_
-approval_
+Desired_Dish_ [shape = circle ,label= "" , xlabel="Desired_Dish__
  " ] ;
-StartEvent_1jwn8rf_ [shape = circle ,label= "" , xlabel="StartEvent_1jwn8rf__
+E0_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="E0_
  " ] ;
-E2_ [shape = circle ,label= "" , xlabel="E2__
+E1_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="E1_
  " ] ;
-Evaluate_leave_application _ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Evaluate_
-leave_
-application _
+Desired_Component_ [shape = circle ,label= "" , xlabel="Desired_Component__
  " ] ;
-Take_the_leave_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Take_
-the_
-leave_
+Choose_recipe_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Choose_
+recipe_
  " ] ;
-E0_ [shape = circle ,label= "" , xlabel="E0__
+Hunger_Satisfied_ [shape = circle ,label= "" , xlabel="Hunger_Satisfied__
  " ] ;
-E3_ [shape = circle ,label= "" , xlabel="E3__
+Cook_Pasta_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Cook_
+Pasta_
  " ] ;
-Fill_in_the_leave_application_form_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Fill_
-in_
-the_
-leave_
-application_
-form_
+ExclusiveGateway_19bzoa8_ [shape = circle ,label= "" , xlabel="ExclusiveGateway_19bzoa8__
  " ] ;
-E1_ [shape = circle ,label= "" , xlabel="E1__
+Hunger_Noticed_ [shape = circle ,label= "" , xlabel="Hunger_Noticed__
  " ] ;
-EndEvent_1owo3ed_ [shape = circle ,label= "" , xlabel="EndEvent_1owo3ed__
- " ] ;
-EndEvent_1tmnaws_ [shape = circle ,label= "" , xlabel="EndEvent_1tmnaws__
- " ] ;
-Inform_the_acceptance_request_-> { E2_}
- Manage_the_Application_-> { E3_}
- Inform_the_rejection_of_request_-> { EndEvent_1owo3ed_}
- Application_-> { Inform_the_acceptance_request_}
- Application_-> { Inform_the_rejection_of_request_}
- Submit_leave_application_for_approval_-> { E1_}
- StartEvent_1jwn8rf_-> { Fill_in_the_leave_application_form_}
- E2_-> { Manage_the_Application_}
- Evaluate_leave_application _-> { Application_}
- Take_the_leave_-> { EndEvent_1tmnaws_}
- E0_-> { Submit_leave_application_for_approval_}
- E3_-> { Take_the_leave_}
- Fill_in_the_leave_application_form_-> { E0_}
- E1_-> { Evaluate_leave_application _}
- }
+eat_meal_-> { Hunger_Satisfied_}
+Prepare_Salad_-> { ExclusiveGateway_19bzoa8_}
+ExclusiveGateway_0hw25t1_-> { E1_}
+Cook_Steak_-> { ExclusiveGateway_0hw25t1_}
+Desired_Dish_-> { Cook_Pasta_}[label = "pasta"];
+Desired_Dish_-> { Cook_Steak_}[label = "Steak"];
+E0_-> { Desired_Dish_}
+E1_-> { ExclusiveGateway_19bzoa8_}
+Desired_Component_-> { E0_}
+Desired_Component_-> { Prepare_Salad_}
+Choose_recipe_-> { Desired_Component_}
+Cook_Pasta_-> { ExclusiveGateway_0hw25t1_}
+ExclusiveGateway_19bzoa8_-> { eat_meal_}
+Hunger_Noticed_-> { Choose_recipe_}
+}

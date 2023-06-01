@@ -6,7 +6,7 @@
     <bpmn:participant id="Participant_0fhm8kx" name="1st level support agent" processRef="Process_155pu8n" />
     <bpmn:participant id="Participant_1r8mxaw" name="2nd level support agent" processRef="Process_0ia8a42" />
     <bpmn:participant id="Participant_1o1lf7g" name="Software Developer" processRef="Process_04jl5yq" />
-    <bpmn:messageFlow id="MessageFlow_133vk36" sourceRef="Task_051rvar" targetRef="EndEvent_08lcs2t" />
+    <bpmn:messageFlow id="MessageFlow_133vk36" sourceRef="Task_051rvar" targetRef="Intermediate_08lcs2t" />
     <bpmn:messageFlow id="MessageFlow_1ezhcey" sourceRef="Participant_0ducb95" targetRef="StartEvent_11kl0g1" />
     <bpmn:messageFlow id="MessageFlow_0nybmf7" sourceRef="Task_1fb8awv" targetRef="Participant_0ducb95" />
     <bpmn:messageFlow id="MessageFlow_16wta3o" sourceRef="Participant_0ducb95" targetRef="Task_1fb8awv" />
@@ -25,8 +25,8 @@
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="SequenceFlow_0gnfbar" sourceRef="Task_1fb8awv" targetRef="ExclusiveGateway_0m5gdq1" />
     <bpmn:sequenceFlow id="SequenceFlow_0kpzp95" name="no" sourceRef="ExclusiveGateway_0m5gdq1" targetRef="Task_170x1hy" />
-    <bpmn:sequenceFlow id="SequenceFlow_0zr850d" sourceRef="Task_170x1hy" targetRef="EndEvent_0p8ebgb" />
-    <bpmn:sequenceFlow id="SequenceFlow_18x7eb5" sourceRef="EndEvent_0p8ebgb" targetRef="Task_0wqzqkw" />
+    <bpmn:sequenceFlow id="SequenceFlow_0zr850d" sourceRef="Task_170x1hy" targetRef="Intermediate_0p8ebgb" />
+    <bpmn:sequenceFlow id="SequenceFlow_18x7eb5" sourceRef="Intermediate_0p8ebgb" targetRef="Task_0wqzqkw" />
     <bpmn:endEvent id="EndEvent_09saf6y">
       <bpmn:incoming>SequenceFlow_1q0zlj1</bpmn:incoming>
     </bpmn:endEvent>
@@ -40,7 +40,7 @@
       <bpmn:incoming>SequenceFlow_10x1iy0</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0gnfbar</bpmn:outgoing>
     </bpmn:manualTask>
-    <bpmn:intermediateCatchEvent id="EndEvent_0p8ebgb">
+    <bpmn:intermediateCatchEvent id="Intermediate_0p8ebgb">
       <bpmn:incoming>SequenceFlow_0zr850d</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_18x7eb5</bpmn:outgoing>
       <bpmn:messageEventDefinition />
@@ -109,8 +109,8 @@
     <bpmn:sequenceFlow id="SequenceFlow_1whkag0" sourceRef="Task_1tokmpd" targetRef="ExclusiveGateway_0lmmcl3" />
     <bpmn:sequenceFlow id="SequenceFlow_1h4vfha" name="no" sourceRef="ExclusiveGateway_0lmmcl3" targetRef="ExclusiveGateway_183x3s6" />
     <bpmn:sequenceFlow id="SequenceFlow_0xcygkn" name="yes" sourceRef="ExclusiveGateway_0lmmcl3" targetRef="Task_0wusqfp" />
-    <bpmn:sequenceFlow id="SequenceFlow_0jaktqo" sourceRef="Task_0wusqfp" targetRef="EndEvent_08lcs2t" />
-    <bpmn:sequenceFlow id="SequenceFlow_1d73ccg" sourceRef="EndEvent_08lcs2t" targetRef="ExclusiveGateway_183x3s6" />
+    <bpmn:sequenceFlow id="SequenceFlow_0jaktqo" sourceRef="Task_0wusqfp" targetRef="Intermediate_08lcs2t" />
+    <bpmn:sequenceFlow id="SequenceFlow_1d73ccg" sourceRef="Intermediate_08lcs2t" targetRef="ExclusiveGateway_183x3s6" />
     <bpmn:sequenceFlow id="SequenceFlow_1eic6b2" sourceRef="ExclusiveGateway_183x3s6" targetRef="ExclusiveGateway_0ptp18y" />
     <bpmn:exclusiveGateway id="ExclusiveGateway_0ptp18y" name="Result ?">
       <bpmn:incoming>SequenceFlow_1eic6b2</bpmn:incoming>
@@ -133,7 +133,7 @@
     </bpmn:task>
     <bpmn:sequenceFlow id="SequenceFlow_13iwg0u" name="Fix in next release" sourceRef="ExclusiveGateway_0ptp18y" targetRef="Task_0xas4mh" />
     <bpmn:sequenceFlow id="SequenceFlow_0ktl3z2" sourceRef="Task_0xas4mh" targetRef="Task_1od56ge" />
-    <bpmn:intermediateCatchEvent id="EndEvent_08lcs2t">
+    <bpmn:intermediateCatchEvent id="Intermediate_08lcs2t">
       <bpmn:incoming>SequenceFlow_0jaktqo</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1d73ccg</bpmn:outgoing>
       <bpmn:messageEventDefinition />
@@ -384,7 +384,7 @@
       <bpmndi:BPMNShape id="ManualTask_07qtcf7_di" bpmnElement="Task_051rvar">
         <dc:Bounds x="1568" y="837" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="IntermediateCatchEvent_0t1wp7o_di" bpmnElement="EndEvent_08lcs2t">
+      <bpmndi:BPMNShape id="IntermediateCatchEvent_0t1wp7o_di" bpmnElement="Intermediate_08lcs2t">
         <dc:Bounds x="690" y="920" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ManualTask_11qe6jq_di" bpmnElement="Task_0wusqfp">
@@ -432,7 +432,7 @@
         <di:waypoint x="375" y="169" />
         <di:waypoint x="375" y="253" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="IntermediateCatchEvent_1rtab5v_di" bpmnElement="EndEvent_0p8ebgb">
+      <bpmndi:BPMNShape id="IntermediateCatchEvent_1rtab5v_di" bpmnElement="Intermediate_0p8ebgb">
         <dc:Bounds x="691" y="277" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ManualTask_04xa0zq_di" bpmnElement="Task_0wqzqkw">

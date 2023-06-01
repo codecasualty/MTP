@@ -42,6 +42,7 @@ allfiles="$(find . -iname "*.bpmn")"
 
 while (true)
 do
+    
 
     choice=$(printf "${allfiles}" \
         | cut -d '/' -f3- \
@@ -53,18 +54,21 @@ do
         fileName=$(printf '%s\n' "./BPMN/${choice}" | sed 's/ /.bpmn/g')
         java Split ${fileName} 
         dot -Tpng  petrinet.dot > petrinet.png
+        dot -Tpng  bpmn.dot > bpmn.png
         echo "opening BPMN Model and Petri Net Model"
         echo "---------------------------------------------------------------"
         petrinetfile=" $(echo $fileName | sed  's/bpmn/png/g')"
-        display $petrinetfile & display petrinet.png
+        display $petrinetfile & display petrinet.png & display bpmn.png
     else
         echo "Program terminated." && exit 0
     fi
 
-
+    # read -n1 c && printf "\nYou Pressed: %s\n" "$c"
+    # this command will stop until the key is pressed
+    read -n1 
     
-done
-
+done 
+# 2>/dev/null
 
 
 # echo "${choice}"

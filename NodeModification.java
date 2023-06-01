@@ -353,7 +353,7 @@ public class NodeModification{
             String key = ele.getKey();
             PetriNetNode node = ele.getValue();
             if(node.getisEPlace() || node.getisPlace())continue;
-            System.out.println("current transition is "+key+" "+node.getName());
+            // System.out.println("current transition is "+key+" "+node.getName());
             ArrayList<String> incomingPlaceCurrentTransition = node.getIncomingNodes();
             ArrayList<Integer> incomingEdgesCurrentTransition = node.getIncomingEdges();
             
@@ -362,15 +362,15 @@ public class NodeModification{
             HashSet<String> elementsInParticipant = participantWiseOrdering.get(participantId);
 
             String mappingPlace = getMappingPlace(incomingPlaceCurrentTransition , elementsInParticipant);
-            print(incomingEdgesCurrentTransition);
+            // print(incomingEdgesCurrentTransition);
             if(mappingPlace.length() <= 0)continue;
 
             for(int i = 0;i < incomingEdgesCurrentTransition.size();i++){
                 String temp = incomingPlaceCurrentTransition.get(i);
                 if(temp.contains("<>"))temp = (temp.split("<>"))[1];
-                Utility.color("blue");
-                System.out.println("running place is "+temp);
-                Utility.color("reset");
+                // Utility.color("blue");
+                // System.out.println("running place is "+temp);
+                // Utility.color("reset");
                 if(elementsInParticipant.contains(temp) || PetriNetmap.get(incomingPlaceCurrentTransition.get(i)).getIsSpecialNode() )continue;
                 String runningPlaceId = incomingPlaceCurrentTransition.get(i);
                 removeIncomingNodesReference(PetriNetmap, runningPlaceId, mappingPlace, PetriNetmap.get(runningPlaceId).getIncomingNodes());
@@ -388,10 +388,10 @@ public class NodeModification{
     }
 
     public String getMappingPlace(ArrayList<String> list , HashSet<String> set){
-        Utility.color("red");
-        System.out.println(list);
-        System.out.println(set);
-        Utility.color("reset");
+        // Utility.color("red");
+        // System.out.println(list);
+        // System.out.println(set);
+        // Utility.color("reset");
         if(set.isEmpty() || set == null)return "";
         for(String str: list){
             if(set.contains(str))return str;

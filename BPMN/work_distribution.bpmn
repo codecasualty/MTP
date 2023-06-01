@@ -32,7 +32,7 @@
     </bpmn:task>
     <bpmn:sequenceFlow id="SequenceFlow_0p73csl" sourceRef="StartEvent_0moc41q" targetRef="Task_0jpzc2e" />
     <bpmn:sequenceFlow id="SequenceFlow_1ilmnsx" sourceRef="Task_0jpzc2e" targetRef="ExclusiveGateway_07jwci4" />
-    <bpmn:sequenceFlow id="SequenceFlow_0rvpfpu" name="Something real" sourceRef="ExclusiveGateway_07jwci4" targetRef="ExclusiveGateway_1gp7iiu" />
+    <bpmn:sequenceFlow id="SequenceFlow_0rvpfpu" sourceRef="ExclusiveGateway_07jwci4" targetRef="ExclusiveGateway_1gp7iiu" />
     <bpmn:sequenceFlow id="SequenceFlow_08r5e1u" name="pasta" sourceRef="ExclusiveGateway_1gp7iiu" targetRef="Task_1cy69a7" />
     <bpmn:sequenceFlow id="SequenceFlow_1aczftg" sourceRef="Task_1cy69a7" targetRef="ExclusiveGateway_0hw25t1" />
     <bpmn:sequenceFlow id="SequenceFlow_03tzcao" sourceRef="ExclusiveGateway_0hw25t1" targetRef="ExclusiveGateway_19bzoa8" />
@@ -44,7 +44,7 @@
       <bpmn:outgoing>SequenceFlow_01d6jb4</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="SequenceFlow_01d6jb4" sourceRef="Task_04usv0x" targetRef="ExclusiveGateway_0hw25t1" />
-    <bpmn:sequenceFlow id="SequenceFlow_172fjto" name="Salad" sourceRef="ExclusiveGateway_07jwci4" targetRef="Task_149meit" />
+    <bpmn:sequenceFlow id="SequenceFlow_172fjto" sourceRef="ExclusiveGateway_07jwci4" targetRef="Task_149meit" />
     <bpmn:task id="Task_149meit" name="Prepare Salad">
       <bpmn:incoming>SequenceFlow_172fjto</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0s0h2ub</bpmn:outgoing>

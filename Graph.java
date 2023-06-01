@@ -3,6 +3,7 @@ public class Graph{
     // Returns a list of nodes that are incoming to this node. The list is sorted
     ArrayList<String> incomingNodes ;
     ArrayList<String> outgoingNodes ;
+    ArrayList<String> outgoingEdgesNames;
     ArrayList<Integer> incomingEdges;
     ArrayList<Integer> outgoingEdges;
     String name , id , type;
@@ -15,6 +16,10 @@ public class Graph{
         outgoingNodes = new ArrayList<>();
         incomingEdges = new ArrayList<>();
         outgoingEdges = new ArrayList<>();
+        /**
+         * this list stores the names of edges , this will be used in graphviz for naming the edges (outgoing edges)
+         */
+        outgoingEdgesNames = new ArrayList<>();
         name = "";
         id = "";
         type = "";
@@ -38,6 +43,14 @@ public class Graph{
          * this is set to true if the node is constructed for timers , multinstance parallel or sequential or loops structures
          */
         isSpecialNode = false;
+    }
+
+    public ArrayList<String> getOutgoingEdgesName(){
+        return outgoingEdgesNames;
+    }
+
+    public void setOutgoingEdgesName(String str){
+        this.outgoingEdgesNames.add(str);
     }
 
     

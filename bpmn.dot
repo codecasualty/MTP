@@ -1,0 +1,49 @@
+digraph D { 
+ rankdir=LR;
+ size="19,12" ; 
+ ratio="fill";
+ fontsize="15" 
+;eat_meal_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="eat_
+meal_
+ " ] ;
+Desired_Component_ [shape = diamond ,label= "", xlabel="Desired_
+Component_
+ " ] ;
+Choose_recipe_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Choose_
+recipe_
+ " ] ;
+Prepare_Salad_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Prepare_
+Salad_
+ " ] ;
+ExclusiveGateway_0hw25t1_ [shape = diamond ,label= "", xlabel="ExclusiveGateway_0hw25t1_
+ " ] ;
+Hunger_Satisfied_ [shape = doublecircle,style=filled ,label= "", xlabel="Hunger_
+Satisfied_
+ "  , fillcolor=black] ;
+Cook_Steak_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Cook_
+Steak_
+ " ] ;
+Desired_Dish_ [shape = diamond ,label= "", xlabel="Desired_
+Dish_
+ " ] ;
+Cook_Pasta_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Cook_
+Pasta_
+ " ] ;
+ExclusiveGateway_19bzoa8_ [shape = diamond ,label= "", xlabel="ExclusiveGateway_19bzoa8_
+ " ] ;
+Hunger_Noticed_ [shape = circle ,label= "" , xlabel="Hunger_
+Noticed_
+ " ] ;
+eat_meal_-> { Hunger_Satisfied_}
+Desired_Component_-> { Desired_Dish_}
+Desired_Component_-> { Prepare_Salad_}
+Choose_recipe_-> { Desired_Component_}
+Prepare_Salad_-> { ExclusiveGateway_19bzoa8_}
+ExclusiveGateway_0hw25t1_-> { ExclusiveGateway_19bzoa8_}
+Cook_Steak_-> { ExclusiveGateway_0hw25t1_}
+Desired_Dish_-> { Cook_Pasta_}[label = "pasta_"];
+Desired_Dish_-> { Cook_Steak_}[label = "Steak_"];
+Cook_Pasta_-> { ExclusiveGateway_0hw25t1_}
+ExclusiveGateway_19bzoa8_-> { eat_meal_}
+Hunger_Noticed_-> { Choose_recipe_}
+}

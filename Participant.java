@@ -95,6 +95,7 @@ public class Participant{
                 Graph prevNode = map.get(prev);
                 prevNode.setOutgoingNodes(next);
                 prevNode.setOutgoingEdges(1);
+                prevNode.setOutgoingEdgesName("");
                 prevNode.setPetriNetStyle(1);//these are transitions
                 Graph nextNode = map.get(next);
                 nextNode.setIncomingNode(prev);
@@ -110,6 +111,7 @@ public class Participant{
         Graph startNode = new Graph();
         startNode.setOutgoingNodes("participant0");
         startNode.setOutgoingEdges(1);
+        startNode.setOutgoingEdgesName("");
         startNode.setPetriNetStyle(0);
         startNode.setName("StartEvent");
         map.put("StartEvent" , startNode);
@@ -126,7 +128,7 @@ public class Participant{
 
         map.get("participant"+(nodes-1)).setOutgoingNodes("EndEvent");
         map.get("participant"+(nodes-1)).setOutgoingEdges(1);
-
+        map.get("participant"+(nodes-1)).setOutgoingEdgesName("");
         
         
 

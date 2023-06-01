@@ -47,8 +47,12 @@ class GeneratePetriNet{
                 if(value.getOutgoingNodes().size() == 0)continue;
                 for(int i = 0;i < value.getOutgoingNodes().size();i++){
                     String o_node = value.getOutgoingNodes().get(i);
-                    if(!map.containsKey(o_node))continue;
-                    writer.write(convert(value.getName())+"-> { " +convert(map.get(o_node).getName())+"}"+ (  value.getOutgoingEdges().get(i) == -1 ? "[style = dashed]" : ""  ) +"\n ");
+                    if(!map.containsKey(o_node) || convert(value.getName()).startsWith("_"))continue;
+                    writer.write(convert(value.getName())+"-> { " +convert(map.get(o_node).getName())+"}"+ (  value.getOutgoingEdges().get(i) == -1 ? "[style = dashed]" : ""  ));
+                    if( i < value.getOutgoingEdgesName().size() &&  value.getOutgoingEdgesName().get(i).length() >= 1){
+                        writer.write("[label = \""+value.getOutgoingEdgesName().get(i)+"\"];\n");
+                    }
+                    else writer.write("\n");
                 }
                 
                 
