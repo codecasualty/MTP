@@ -6,10 +6,12 @@ public class Graph{
     ArrayList<String> outgoingEdgesNames;
     ArrayList<Integer> incomingEdges;
     ArrayList<Integer> outgoingEdges;
-    String name , id , type;
+    String name , id , type , kind;
     int petriNetStyle;
     int taskType , cardinality;
+    int currentTime;
     boolean isTimer , isSpecialNode;
+    
     // This is called by the constructor to initialize the fields that are used to determine which nodes and edges are valid
     Graph(){
         incomingNodes = new ArrayList<>();
@@ -43,6 +45,33 @@ public class Graph{
          * this is set to true if the node is constructed for timers , multinstance parallel or sequential or loops structures
          */
         isSpecialNode = false;
+        /**
+         * this denotes what kind of node we have is it task, event , gateway this is important to avoid the parallel gateway merging condition
+         */
+        kind = "";
+        /**
+         * current time helps us to identify if the node is already visited and a backward node for this we have visited variable
+         * but it can only tell us whether the node is visited or not but we need to maintain a instance (variable ) so that we can 
+         * identify whether it is forward or backward edge
+         */
+        currentTime = -1;
+        
+    }
+
+    public void setTime(int val){
+        this.currentTime = val;
+    }
+
+    public int getTime(){
+        return currentTime;
+    }
+
+    public String getKind(){
+        return this.kind;
+    }
+
+    public void setKind(String val){
+        this.kind = val;
     }
 
     public ArrayList<String> getOutgoingEdgesName(){

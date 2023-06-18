@@ -80,7 +80,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_1kzcfdx" name="Special carrier" sourceRef="ExclusiveGateway_1h81tj3" targetRef="Task_0k0czq0" />
     <bpmn:sequenceFlow id="SequenceFlow_17feyhc" sourceRef="Task_0k0czq0" targetRef="Task_10ry5e9" />
     <bpmn:sequenceFlow id="SequenceFlow_06klxfa" sourceRef="Task_10ry5e9" targetRef="ExclusiveGateway_0k0agx1" />
-    <bpmn:exclusiveGateway id="ExclusiveGateway_0k0agx1">
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0k0agx1" name="exclusive merge">
       <bpmn:incoming>SequenceFlow_06klxfa</bpmn:incoming>
       <bpmn:incoming>SequenceFlow_0kedh49</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0adz3hi</bpmn:outgoing>
@@ -88,7 +88,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_0kedh49" sourceRef="ExclusiveGateway_0xqj9ax" targetRef="ExclusiveGateway_0k0agx1" />
     <bpmn:sequenceFlow id="SequenceFlow_0adz3hi" sourceRef="ExclusiveGateway_0k0agx1" targetRef="ExclusiveGateway_17zgvqq" />
     <bpmn:sequenceFlow id="SequenceFlow_0xkoaue" sourceRef="Task_1ypze2y" targetRef="ExclusiveGateway_17zgvqq" />
-    <bpmn:parallelGateway id="ExclusiveGateway_17zgvqq">
+    <bpmn:parallelGateway id="ExclusiveGateway_17zgvqq" name="parallel merge">
       <bpmn:incoming>SequenceFlow_0adz3hi</bpmn:incoming>
       <bpmn:incoming>SequenceFlow_0xkoaue</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0lcpfq5</bpmn:outgoing>
@@ -239,6 +239,9 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ExclusiveGateway_0k0agx1_di" bpmnElement="ExclusiveGateway_0k0agx1" isMarkerVisible="true">
         <dc:Bounds x="1019" y="417" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1084" y="432" width="80" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_06klxfa_di" bpmnElement="SequenceFlow_06klxfa">
         <di:waypoint x="956" y="442" />
@@ -254,6 +257,9 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ParallelGateway_0qjsu0b_di" bpmnElement="ExclusiveGateway_17zgvqq">
         <dc:Bounds x="1019" y="609" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1009" y="666" width="70" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0xkoaue_di" bpmnElement="SequenceFlow_0xkoaue">
         <di:waypoint x="470" y="634" />

@@ -2,50 +2,79 @@ digraph D {
  rankdir=LR;
  size="19,12" ; 
  ratio="fill";
- fontsize="15" 
-;eat_meal_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="eat_
-meal_
+ fontsize="20" 
+;EndEvent_1ljaooz_ [shape = circle ,label= "" , xlabel="EndEvent_1ljaooz__
  " ] ;
-Prepare_Salad_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Prepare_
-Salad_
+E3_ [shape = circle ,label= "" , xlabel="E3__
  " ] ;
-ExclusiveGateway_0hw25t1_ [shape = circle ,label= "" , xlabel="ExclusiveGateway_0hw25t1__
+VIP_Customer1_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="VIP_
+Customer1_
  " ] ;
-Cook_Steak_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Cook_
-Steak_
+Handle_1st_level_issue_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Handle_
+1st_
+level_
+issue_
  " ] ;
-Desired_Dish_ [shape = circle ,label= "" , xlabel="Desired_Dish__
+Question_Received_ [shape = circle ,label= "" , xlabel="Question_Received__
  " ] ;
-E0_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="E0_
+ExclusiveGateway_1feb6ju_ [shape = circle ,label= "" , xlabel="ExclusiveGateway_1feb6ju__
  " ] ;
 E1_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="E1_
  " ] ;
-Desired_Component_ [shape = circle ,label= "" , xlabel="Desired_Component__
+E2_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="E2_
  " ] ;
-Choose_recipe_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Choose_
-recipe_
+Unsure_ [shape = circle ,label= "" , xlabel="Unsure__
  " ] ;
-Hunger_Satisfied_ [shape = circle ,label= "" , xlabel="Hunger_Satisfied__
+E4_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="E4_
  " ] ;
-Cook_Pasta_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Cook_
-Pasta_
+Finished_ [shape = circle ,label= "" , xlabel="Finished__
  " ] ;
-ExclusiveGateway_19bzoa8_ [shape = circle ,label= "" , xlabel="ExclusiveGateway_19bzoa8__
+Explain_Solution_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Explain_
+Solution_
  " ] ;
-Hunger_Noticed_ [shape = circle ,label= "" , xlabel="Hunger_Noticed__
+Handle_2nd_Level_Issue_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Handle_
+2nd_
+Level_
+Issue_
  " ] ;
-eat_meal_-> { Hunger_Satisfied_}
-Prepare_Salad_-> { ExclusiveGateway_19bzoa8_}
-ExclusiveGateway_0hw25t1_-> { E1_}
-Cook_Steak_-> { ExclusiveGateway_0hw25t1_}
-Desired_Dish_-> { Cook_Pasta_}[label = "pasta"];
-Desired_Dish_-> { Cook_Steak_}[label = "Steak"];
-E0_-> { Desired_Dish_}
-E1_-> { ExclusiveGateway_19bzoa8_}
-Desired_Component_-> { E0_}
-Desired_Component_-> { Prepare_Salad_}
-Choose_recipe_-> { Desired_Component_}
-Cook_Pasta_-> { ExclusiveGateway_0hw25t1_}
-ExclusiveGateway_19bzoa8_-> { eat_meal_}
-Hunger_Noticed_-> { Choose_recipe_}
+handle_Question_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="handle_
+Question_
+ " ] ;
+StartEvent0_ [shape = circle ,label= "" , xlabel="StartEvent0__
+ " ] ;
+Provide_Feedback_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Provide_
+Feedback_
+ " ] ;
+E0_ [shape = circle ,label= "" , xlabel="E0__
+ " ] ;
+VIP_Customer0_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="VIP_
+Customer0_
+ " ] ;
+Can_handle_myself_ [shape = circle ,label= "" , xlabel="Can_handle_myself__
+ " ] ;
+EndEvent0_ [shape = circle ,label= "" , xlabel="EndEvent0__
+ " ] ;
+E3_-> { VIP_Customer1_}
+VIP_Customer1_-> { EndEvent0_}
+Handle_1st_level_issue_-> { Finished_}
+Question_Received_-> { handle_Question_}
+ExclusiveGateway_1feb6ju_-> { Explain_Solution_}
+E1_-> { ExclusiveGateway_1feb6ju_}
+E2_-> { ExclusiveGateway_1feb6ju_}
+Unsure_-> { Provide_Feedback_}[label = "yes"];
+Unsure_-> { E4_}[label = "no"];
+E4_-> { ExclusiveGateway_1feb6ju_}
+Finished_-> { Handle_2nd_Level_Issue_}[label = "No"];
+Finished_-> { E2_}[label = "yes"];
+Explain_Solution_-> { EndEvent_1ljaooz_}
+Explain_Solution_-> { E3_}[style = dashed]
+Handle_2nd_Level_Issue_-> { Unsure_}
+handle_Question_-> { Can_handle_myself_}
+StartEvent0_-> { VIP_Customer0_}
+Provide_Feedback_-> { ExclusiveGateway_1feb6ju_}
+E0_-> { VIP_Customer1_}
+VIP_Customer0_-> { Question_Received_}[style = dashed]
+VIP_Customer0_-> { E0_}
+Can_handle_myself_-> { Handle_1st_level_issue_}[label = "No"];
+Can_handle_myself_-> { E1_}[label = "yes"];
 }

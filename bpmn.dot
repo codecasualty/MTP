@@ -3,47 +3,66 @@ digraph D {
  size="19,12" ; 
  ratio="fill";
  fontsize="15" 
-;eat_meal_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="eat_
-meal_
- " ] ;
-Desired_Component_ [shape = diamond ,label= "", xlabel="Desired_
-Component_
- " ] ;
-Choose_recipe_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Choose_
-recipe_
- " ] ;
-Prepare_Salad_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Prepare_
-Salad_
- " ] ;
-ExclusiveGateway_0hw25t1_ [shape = diamond ,label= "", xlabel="ExclusiveGateway_0hw25t1_
- " ] ;
-Hunger_Satisfied_ [shape = doublecircle,style=filled ,label= "", xlabel="Hunger_
-Satisfied_
+;EndEvent_1ljaooz_ [shape = doublecircle,style=filled ,label= "", xlabel="EndEvent_1ljaooz_
  "  , fillcolor=black] ;
-Cook_Steak_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Cook_
-Steak_
+VIP_Customer1_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="VIP_
+Customer1_
  " ] ;
-Desired_Dish_ [shape = diamond ,label= "", xlabel="Desired_
-Dish_
+Handle_1st_level_issue_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Handle_
+1st_
+level_
+issue_
  " ] ;
-Cook_Pasta_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Cook_
-Pasta_
+Question_Received_ [shape = circle ,label= "" , xlabel="Question_
+Received_
  " ] ;
-ExclusiveGateway_19bzoa8_ [shape = diamond ,label= "", xlabel="ExclusiveGateway_19bzoa8_
+ExclusiveGateway_1feb6ju_ [shape = diamond ,label= "", xlabel="ExclusiveGateway_1feb6ju_
  " ] ;
-Hunger_Noticed_ [shape = circle ,label= "" , xlabel="Hunger_
-Noticed_
+Unsure_ [shape = diamond ,label= "", xlabel="Unsure_
  " ] ;
-eat_meal_-> { Hunger_Satisfied_}
-Desired_Component_-> { Desired_Dish_}
-Desired_Component_-> { Prepare_Salad_}
-Choose_recipe_-> { Desired_Component_}
-Prepare_Salad_-> { ExclusiveGateway_19bzoa8_}
-ExclusiveGateway_0hw25t1_-> { ExclusiveGateway_19bzoa8_}
-Cook_Steak_-> { ExclusiveGateway_0hw25t1_}
-Desired_Dish_-> { Cook_Pasta_}[label = "pasta_"];
-Desired_Dish_-> { Cook_Steak_}[label = "Steak_"];
-Cook_Pasta_-> { ExclusiveGateway_0hw25t1_}
-ExclusiveGateway_19bzoa8_-> { eat_meal_}
-Hunger_Noticed_-> { Choose_recipe_}
+Finished_ [shape = diamond ,label= "", xlabel="Finished_
+ " ] ;
+Explain_Solution_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Explain_
+Solution_
+ " ] ;
+Handle_2nd_Level_Issue_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Handle_
+2nd_
+Level_
+Issue_
+ " ] ;
+handle_Question_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="handle_
+Question_
+ " ] ;
+StartEvent0_ [shape = circle ,label= "" , xlabel="StartEvent0_
+ " ] ;
+Provide_Feedback_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Provide_
+Feedback_
+ " ] ;
+VIP_Customer0_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="VIP_
+Customer0_
+ " ] ;
+Can_handle_myself_ [shape = diamond ,label= "", xlabel="Can_
+handle_
+myself_
+ " ] ;
+EndEvent0_ [shape = doublecircle,style=filled ,label= "", xlabel="EndEvent0_
+ "  , fillcolor=black] ;
+VIP_Customer1_-> { EndEvent0_}
+Handle_1st_level_issue_-> { Finished_}
+Question_Received_-> { handle_Question_}
+ExclusiveGateway_1feb6ju_-> { Explain_Solution_}
+Unsure_-> { Provide_Feedback_}[label = "yes_"];
+Unsure_-> { ExclusiveGateway_1feb6ju_}[label = "no_"];
+Finished_-> { Handle_2nd_Level_Issue_}[label = "No_"];
+Finished_-> { ExclusiveGateway_1feb6ju_}[label = "yes_"];
+Explain_Solution_-> { EndEvent_1ljaooz_}
+Explain_Solution_-> { VIP_Customer1_}[style = dashed]
+Handle_2nd_Level_Issue_-> { Unsure_}
+handle_Question_-> { Can_handle_myself_}
+StartEvent0_-> { VIP_Customer0_}
+Provide_Feedback_-> { ExclusiveGateway_1feb6ju_}
+VIP_Customer0_-> { Question_Received_}[style = dashed]
+VIP_Customer0_-> { VIP_Customer1_}
+Can_handle_myself_-> { Handle_1st_level_issue_}[label = "No_"];
+Can_handle_myself_-> { ExclusiveGateway_1feb6ju_}[label = "yes_"];
 }

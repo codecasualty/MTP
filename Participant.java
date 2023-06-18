@@ -1,38 +1,24 @@
 import java.util.*;
-
 public class Participant{
-
+    int startCounts = 0 , endCounts = 0;
     public HashMap<String  , ParticipantData > extractIds(String value , int startIndex , int endIndex){
         System.out.println("reached participant");
         HashMap<String  , ParticipantData > collabData = new HashMap<>();
         String startingPattern = "<bpmn:participant id=";
         String[][] properties = { {"id=" ,"\"" } , {"name=" , "\""} , {"processRef=" , "\""}};
-
-        // System.out.println("current pattern is \u001B[31m"+pattern+" ");
-        // System.out.println("starting pattern "+startingPattern+" ending pattern "+endingPattern+"\u001B[0m ");
-        // System.out.println(value.substring(1100)+" ");
         startIndex = value.indexOf(startingPattern);
         while (startIndex != -1) {
             endIndex = getIndex("/>" , startIndex , value);
             String substring = value.substring(startIndex , endIndex);
-            
             String[][] arr = new String[4][3];
             int index = 0;
             ParticipantData ob = new ParticipantData();
             for(String[] ele : properties){
-                // System.out.print(ele[0]+"  ");
-                
                 String ans = getId(substring , ele[0] , ele[1]);
                 arr[index][0] = ele[0].trim();
                 arr[index][1] = ans.trim();
                 arr[index++][2] = 1+"";
-                // System.out.println(ans);
-                // System.out.println();
             }
-            // printValues(arr);
-            // createGraph(arr, map);
-            // printGraph();
-            // System.out.println();
             ob.setId(arr[0][1]);
             ob.setName(arr[1][1]);
             ob.setProcessRef(arr[2][1]);
@@ -40,7 +26,6 @@ public class Participant{
             value = value.substring(endIndex+1);
             startIndex = value.indexOf(startingPattern);
         }
-
         return collabData;
     }
 
@@ -107,28 +92,29 @@ public class Participant{
 
         // map.put("startParticipant" , new Graph());
         // map.put("endParticipant" , new Graph());
-
+        String startName = "StartEvent"+(startCounts++);
+        String endName = "EndEvent"+(endCounts++);
         Graph startNode = new Graph();
-        startNode.setOutgoingNodes("participant0");
+        startNode.setOutgoingNodes(list.get(0));
         startNode.setOutgoingEdges(1);
         startNode.setOutgoingEdgesName("");
         startNode.setPetriNetStyle(0);
-        startNode.setName("StartEvent");
-        map.put("StartEvent" , startNode);
+        startNode.setName(startName);
+        map.put(startName , startNode);
 
-        map.get("participant0").setIncomingNode("StartEvent");
-        map.get("participant0").setIncomingEdges(1);
+        map.get(list.get(0)).setIncomingNode(startName);
+        map.get(list.get(0)).setIncomingEdges(1);
 
         Graph endNode = new Graph();
-        endNode.setIncomingNode("participant"+(nodes-1));
+        endNode.setIncomingNode(list.get(nodes-1));
         endNode.setIncomingEdges(1);
         endNode.setPetriNetStyle(0);
-        endNode.setName("EndEvent");
-        map.put("EndEvent" , endNode);
+        endNode.setName(endName);
+        map.put(endName , endNode);
 
-        map.get("participant"+(nodes-1)).setOutgoingNodes("EndEvent");
-        map.get("participant"+(nodes-1)).setOutgoingEdges(1);
-        map.get("participant"+(nodes-1)).setOutgoingEdgesName("");
+        map.get(list.get(nodes-1)).setOutgoingNodes(endName);
+        map.get(list.get(nodes-1)).setOutgoingEdges(1);
+        map.get(list.get(nodes-1)).setOutgoingEdgesName("");
         
         
 

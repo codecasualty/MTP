@@ -10,7 +10,7 @@
     </bpmn:task>
     <bpmn:sequenceFlow id="SequenceFlow_0x19p5g" sourceRef="StartEvent_1" targetRef="Task_0rpamu9" />
     <bpmn:sequenceFlow id="SequenceFlow_075yn2e" sourceRef="Task_0rpamu9" targetRef="Task_11nv275" />
-    <bpmn:exclusiveGateway id="ExclusiveGateway_1ga7k1w" name="is it approved?">
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1ga7k1w" name="is it approved ?">
       <bpmn:incoming>SequenceFlow_0n1t67m</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_17cv01r</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_1ba2av0</bpmn:outgoing>
@@ -77,7 +77,7 @@
       <bpmndi:BPMNShape id="ExclusiveGateway_1ga7k1w_di" bpmnElement="ExclusiveGateway_1ga7k1w" isMarkerVisible="true">
         <dc:Bounds x="529" y="350" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="518" y="407" width="72" height="14" />
+          <dc:Bounds x="517" y="407" width="75" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0n1t67m_di" bpmnElement="SequenceFlow_0n1t67m">

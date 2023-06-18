@@ -9,7 +9,7 @@
       <bpmn:outgoing>SequenceFlow_0wmy191</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="SequenceFlow_1u4qny4" sourceRef="StartEvent_1" targetRef="Task_0djlpm4" />
-    <bpmn:exclusiveGateway id="ExclusiveGateway_19lo72u" name="Xor_divergent">
+    <bpmn:exclusiveGateway id="ExclusiveGateway_19lo72u" name="is item available ?">
       <bpmn:incoming>SequenceFlow_0wmy191</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0s6wz2f</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_1tzkcar</bpmn:outgoing>
@@ -19,12 +19,12 @@
       <bpmn:incoming>SequenceFlow_0s6wz2f</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_12lh5ct</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:sequenceFlow id="SequenceFlow_0s6wz2f" sourceRef="ExclusiveGateway_19lo72u" targetRef="Task_0a7takz" />
+    <bpmn:sequenceFlow id="SequenceFlow_0s6wz2f" name="No" sourceRef="ExclusiveGateway_19lo72u" targetRef="Task_0a7takz" />
     <bpmn:task id="Task_1xi5l3q" name="Confirm Order">
       <bpmn:incoming>SequenceFlow_1tzkcar</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0esdkq1</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:sequenceFlow id="SequenceFlow_1tzkcar" sourceRef="ExclusiveGateway_19lo72u" targetRef="Task_1xi5l3q" />
+    <bpmn:sequenceFlow id="SequenceFlow_1tzkcar" name="Yes" sourceRef="ExclusiveGateway_19lo72u" targetRef="Task_1xi5l3q" />
     <bpmn:sequenceFlow id="SequenceFlow_0esdkq1" sourceRef="Task_1xi5l3q" targetRef="ExclusiveGateway_1f72mqw" />
     <bpmn:parallelGateway id="ExclusiveGateway_1f72mqw" name="And Divergent">
       <bpmn:incoming>SequenceFlow_0esdkq1</bpmn:incoming>
@@ -75,7 +75,7 @@
       <bpmndi:BPMNShape id="ExclusiveGateway_19lo72u_di" bpmnElement="ExclusiveGateway_19lo72u" isMarkerVisible="true">
         <dc:Bounds x="484" y="370" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="490" y="425" width="69" height="14" />
+          <dc:Bounds x="552" y="423" width="88" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0wmy191_di" bpmnElement="SequenceFlow_0wmy191">
@@ -89,6 +89,9 @@
         <di:waypoint x="509" y="370" />
         <di:waypoint x="509" y="224" />
         <di:waypoint x="597" y="224" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="517" y="294" width="14" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Task_1xi5l3q_di" bpmnElement="Task_1xi5l3q">
         <dc:Bounds x="558" y="539" width="100" height="80" />
@@ -97,6 +100,9 @@
         <di:waypoint x="509" y="420" />
         <di:waypoint x="509" y="579" />
         <di:waypoint x="558" y="579" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="515" y="497" width="19" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0esdkq1_di" bpmnElement="SequenceFlow_0esdkq1">
         <di:waypoint x="658" y="579" />

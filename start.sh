@@ -7,8 +7,7 @@
 # echo "package installation complete"
 # echo "---------------------------------------------------------------"
 # set -e
-rm *.class
-javac Split.java
+
 # bpmn_arr=$(find "." -type f -name "*.bpmn")
 
 # totalFile=${#bpmn_arr[@]}
@@ -34,7 +33,8 @@ javac Split.java
 # done
 
 # dirs=( "${!seen[@]}" ) 
-
+rm *.class
+javac Split.java
 allfiles="$(find . -iname "*.bpmn")"
 # echo "${allfiles}"
 # echo ${#allfiles[@]}
@@ -48,7 +48,7 @@ do
         | cut -d '/' -f3- \
         | sed 's/.bpmn/ /g' \
         | sort -g \
-        | rofi -show  window -dmenu -p 'Select BPMN File: ') || exit 1
+        | rofi -show  window -dmenu -l 30 -p 'Select BPMN File: ') || exit 1
     # echo $choice
     if [ "$choice" ]; then
         fileName=$(printf '%s\n' "./BPMN/${choice}" | sed 's/ /.bpmn/g')
@@ -57,8 +57,10 @@ do
         dot -Tpng  bpmn.dot > bpmn.png
         echo "opening BPMN Model and Petri Net Model"
         echo "---------------------------------------------------------------"
-        petrinetfile=" $(echo $fileName | sed  's/bpmn/png/g')"
-        display $petrinetfile & display petrinet.png & display bpmn.png
+        bpmn_file=" $(echo $fileName | sed  's/bpmn/png/g')"
+        display $bpmn_file & 
+        display petrinet.png  \
+        & display bpmn.png
     else
         echo "Program terminated." && exit 0
     fi
@@ -67,8 +69,7 @@ do
     # this command will stop until the key is pressed
     read -n1 
     
-done 
-# 2>/dev/null
+done 2>/dev/null
 
 
 # echo "${choice}"

@@ -6,10 +6,11 @@ public class PetriNetNode{
     private ArrayList<String> outgoingEdgesNames ;    
     private ArrayList<Integer> incomingEdges;
     private ArrayList<Integer> outgoingEdges;
-    private String name , id;
+    private String name , id , kind;
     private boolean isPlace, isTransition , isEPlace , isETransition , isMessageFlow;
     private int taskType , cardinality;
     private boolean isTimer , isSpecialNode;
+    private int currentTime;
     PetriNetNode(){
         incomingNodes = new ArrayList<>();
         outgoingNodes = new ArrayList<>();
@@ -21,8 +22,25 @@ public class PetriNetNode{
         taskType = -1;
         cardinality = 0;
         isSpecialNode = false;
+        kind = "";
+        currentTime = -1;
     }
 
+    public void setTime(int val){
+        this.currentTime = val;
+    }
+
+    public int getTime(){
+        return currentTime;
+    }
+
+    public void setKind(String val){
+        this.kind = val;
+    }
+
+    public String getKind(){
+        return kind;
+    }
 
     public ArrayList<String> getOutgoingEdgesName(){
         return outgoingEdgesNames;

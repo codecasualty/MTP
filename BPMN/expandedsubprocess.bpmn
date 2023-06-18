@@ -13,10 +13,6 @@
       <bpmn:outgoing>SequenceFlow_0fq9hdp</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_0g59ifz</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:endEvent id="EndEvent_058t1gz">
-      <bpmn:incoming>SequenceFlow_0fq9hdp</bpmn:incoming>
-      <bpmn:terminateEventDefinition id="TerminateEventDefinition_0ctcqod" />
-    </bpmn:endEvent>
     <bpmn:parallelGateway id="ParallelGateway_0rkq5oi">
       <bpmn:incoming>SequenceFlow_0g59ifz</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_00ie3gb</bpmn:outgoing>
@@ -78,6 +74,9 @@
     </bpmn:subProcess>
     <bpmn:sequenceFlow id="SequenceFlow_084bgzw" sourceRef="Task_1olu1rv" targetRef="SubProcess_01mud28" />
     <bpmn:sequenceFlow id="SequenceFlow_18y0fy0" sourceRef="SubProcess_01mud28" targetRef="ExclusiveGateway_0p36s2b" />
+    <bpmn:endEvent id="EndEvent_058t1gz">
+      <bpmn:incoming>SequenceFlow_0fq9hdp</bpmn:incoming>
+    </bpmn:endEvent>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
@@ -95,9 +94,6 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="425" y="399" width="86" height="27" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="EndEvent_058t1gz_di" bpmnElement="EndEvent_058t1gz">
-        <dc:Bounds x="530" y="290" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ParallelGateway_0rkq5oi_di" bpmnElement="ParallelGateway_0rkq5oi">
         <dc:Bounds x="623" y="384" width="50" height="50" />
@@ -164,7 +160,7 @@
         <di:waypoint x="1135" y="409" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="SubProcess_01mud28_di" bpmnElement="SubProcess_01mud28" isExpanded="true">
-        <dc:Bounds x="123" y="544" width="662" height="200" />
+        <dc:Bounds x="223" y="555" width="484" height="200" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1xd932r_di" bpmnElement="SequenceFlow_1xd932r">
         <di:waypoint x="279" y="666" />
@@ -191,13 +187,13 @@
         <dc:Bounds x="479" y="626" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_084bgzw_di" bpmnElement="SequenceFlow_084bgzw">
-        <di:waypoint x="235" y="449" />
-        <di:waypoint x="176" y="511" />
-        <di:waypoint x="176" y="539" />
+        <di:waypoint x="269" y="449" />
+        <di:waypoint x="262" y="511" />
+        <di:waypoint x="262" y="555" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_18y0fy0_di" bpmnElement="SequenceFlow_18y0fy0">
-        <di:waypoint x="454" y="544" />
-        <di:waypoint x="454" y="487" />
+        <di:waypoint x="465" y="555" />
+        <di:waypoint x="465" y="487" />
         <di:waypoint x="548" y="487" />
         <di:waypoint x="548" y="434" />
       </bpmndi:BPMNEdge>
@@ -206,6 +202,9 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="247" y="691" width="29" height="14" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_12ldrr6_di" bpmnElement="EndEvent_058t1gz">
+        <dc:Bounds x="530" y="290" width="36" height="36" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

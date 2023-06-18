@@ -44,18 +44,38 @@ public class NodeModification{
             PetriNetNode merging = createEPlace(petrinetmap, "etm"+(countTimerPlace++));
             for(int i = 0;i < incomingNodes.size();i++){
                 String incoming = incomingNodes.get(i);
-                merging.setIncomingNode(incoming);
-                merging.setIncomingEdges(typeOfIncomingEdges.get(i));
+                /**there is chance that the incoming node is place in that we need to add a epsilon transition */
+                if(petrinetmap.get(incoming).getisEPlace() || petrinetmap.get(incoming).getisPlace()){
+                    PetriNetNode extraTransition  =  createETransition(petrinetmap, "ett"+(countTimerTransition++));
+                    petrinetmap.get(incoming).setOutgoingNodes(extraTransition.getName());
+                    petrinetmap.get(incoming).setIncomingEdges(1);
+
+                    petrinetmap.get(extraTransition.getName()).setOutgoingNodes(merging.getName());
+                    petrinetmap.get(extraTransition.getName()).setOutgoingEdges(1);
+
+                    petrinetmap.get(extraTransition.getName()).setIncomingNode(incoming);
+                    petrinetmap.get(extraTransition.getName()).setIncomingEdges(1);
+
+                    petrinetmap.get(merging.getName()).setIncomingNode(extraTransition.getName());
+                    petrinetmap.get(merging.getName()).setIncomingEdges(1);
+
+
+
+                    
+                }
+                else{
+                    merging.setIncomingNode(incoming);
+                    merging.setIncomingEdges(typeOfIncomingEdges.get(i));
+                }
+                
                 /*we will write different code for deleting timerevent from incoming and outgoing nodes */
             }
 
-            PetriNetNode diverging =  createEPlace(petrinetmap, "etd"+(countTimerPlace++));
-            for(int i = 0;i < outgoingNodes.size();i++){
-                String outgoing = outgoingNodes.get(i);
-                diverging.setOutgoingNodes(outgoing);
-                diverging.setOutgoingEdges(typeOfOutgoingEdges.get(i));
-            }
-
+            /**
+             * timers have ending node as place which is called as diverging place now the next node in sequence after timer black box can be
+             * 1)a transition in that case we set the outgoing node of diverging place to the transition node
+             * 2)else we do not create a diverging place and use the last transition i.e. 'b' and set its outgoing nodes to the give place node
+             */
             PetriNetNode a = createETransition(petrinetmap, "ett"+(countTimerTransition++));//epsilon timer place
             PetriNetNode b = createETransition(petrinetmap, "ett"+(countTimerTransition++));//epsilon timer place
             PetriNetNode c = createETransition(petrinetmap, "ett"+(countTimerTransition++));//epsilon timer place
@@ -64,12 +84,58 @@ public class NodeModification{
             setEdges(merging, a);
             setEdges(a, etp);
             setEdges(etp, b);
-            setEdges(b, diverging);
+            // setEdges(b, diverging);
             setEdges(etp,c);
             setEdges(c, merging);
 
+            boolean isPlaceStart = false;
+
+            
+            for(int i = 0;i < outgoingNodes.size();i++){
+                String outgoing = outgoingNodes.get(i);
+                if(petrinetmap.get(outgoing).getisEPlace() || petrinetmap.get(outgoing).getisPlace()){
+                    // for(String outgoingTransition : petrinetmap.get(outgoing).getOutgoingNodes()){
+                    //     diverging.setOutgoingNodes(outgoingTransition);
+                    // }
+                    // for(int outgoingTransition : petrinetmap.get(outgoing).getOutgoingEdges()){
+                    //     diverging.setOutgoingEdges(outgoingTransition);
+                    // }
+                    // for(String outgoingTransition : petrinetmap.get(outgoing).getOutgoingEdgesName()){
+                    //     diverging.setOutgoingEdgesName(outgoingTransition);
+                    // }
+                    isPlaceStart = true;
+                }
+                // else{
+                    // diverging.setOutgoingNodes(outgoing);
+                    // diverging.setOutgoingEdges(typeOfOutgoingEdges.get(i));
+                // }
+                
+            }
+            String lastNode = "";
+            if(isPlaceStart){
+                for(int i = 0;i < outgoingNodes.size();i++){
+                    String outgoing = outgoingNodes.get(i);
+                    b.setOutgoingNodes(outgoing);
+                    b.setOutgoingEdges(1);
+                    
+                }
+                lastNode = b.getName();
+            }
+            else{
+                PetriNetNode diverging =  createEPlace(petrinetmap, "etd"+(countTimerPlace++));
+                for(int i = 0;i < outgoingNodes.size();i++){
+                    String outgoing = outgoingNodes.get(i);
+                    diverging.setOutgoingNodes(outgoing);
+                    diverging.setOutgoingEdges(typeOfOutgoingEdges.get(i));
+                    
+                }
+                lastNode = diverging.getName();
+                setEdges(b, diverging);
+            }
+            
+
             removeIncomingNodesReference(petrinetmap, str, merging.getName(), incomingNodes);
-            removeOutgoingNodesReference(petrinetmap, str, diverging.getName(), outgoingNodes);
+            removeOutgoingNodesReference(petrinetmap, str, lastNode, outgoingNodes);
 
             petrinetmap.remove(str);
 
@@ -123,9 +189,7 @@ public class NodeModification{
         }
 
 
-    }
-
-    
+    }    
 
     public void parallelMultinstance(HashMap<String , PetriNetNode> petrinetmap , String str){
         /**

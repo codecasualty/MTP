@@ -1,6 +1,5 @@
 import java.io.File;
 import java.security.ProviderException;
-import java.util.Scanner;
 import java.util.regex.*;
 import java.io.*;
 import java.util.*;
@@ -19,6 +18,7 @@ class Split{
     static ArrayList<String> timerEvents;
     static ArrayList<String> participantOccurence;    
     static HashMap<String , HashSet<String>> participantWiseOrdering;
+    static HashMap<String , ArrayList<String>> nameStoring;
     static InputStream inputStream = System.in;
     static OutputStream outputStream = System.out;
     static InputReader in = new InputReader(inputStream);
@@ -71,9 +71,11 @@ class Split{
 
             ArrayList<Integer> indexProcess = getOccurence(processPart, "<bpmn:process id=\"");
             indexProcess.add(processPart.lastIndexOf("</bpmn:process>"));
-
+            nameStoring = new HashMap<>();
+            refMapParticipant = mappingIdName(processPart);
+            // out.printLine(refMapParticipant);
             participantWiseOrdering = participantWiseOrdering(indexProcess , processPart , searchPatters);
-
+            
              
             // we are extracting sequence flow at last because it reperesent all elements in bpmn file thus to represent we first extract all elements
             // and then establish relationship among them.
@@ -100,7 +102,9 @@ class Split{
             // out.printLine(collabBlock);
             // = new Participant();
             Participant ob = new Participant();
-            ob.addLinks(map,collabBlock , participants , participantOccurence);
+            for(Map.Entry<String,ArrayList<String>> ele : nameStoring.entrySet())
+            ob.addLinks(map,collabBlock , ele.getValue().size() , ele.getValue());
+            // ob.addLinks(map,collabBlock , participants , participantOccurence);
             
             
             //map all petri net node one by one from map generated
@@ -115,7 +119,7 @@ class Split{
             // printList(sequentialMultinstanceLoop);
             // nodeModification.sequentialMultinstanceOrLoop(PetriNetmap, sequentialMultinstanceLoop);
             nodeModification.edgePreservation(PetriNetmap, blackBoxNode);
-            nodeModification.edgeBalancing(participantWiseOrdering, PetriNetmap);
+            // nodeModification.edgeBalancing(participantWiseOrdering, PetriNetmap);
             GeneratePetriNet petri = new GeneratePetriNet();
             petri.generate(PetriNetmap);
             GenerateBPMN bpmn = new GenerateBPMN();
@@ -131,6 +135,23 @@ class Split{
         
     
     } //end Main
+
+    public static HashMap<String , String> mappingIdName(String processPart){
+        int start = 0;
+        // System.out.println("process part = "+processPart);
+        HashMap<String , String> map = new HashMap<>();
+        while( (start = processPart.indexOf("<bpmn:participant id=", start)) != -1){
+            // System.out.println(start+"  "+(str.substring(start, start + pattern.length()+1)));
+            String participantId = getParameter(processPart , "<bpmn:participant id=" , "\"" , start);
+            int indexOfName = processPart.indexOf("name=", start);
+            String nameOfParticipant = getParameter(processPart , "name=" , "\"" , indexOfName);
+            start=indexOfName;
+            // System.out.println("pariticipant id = "+participantId+"  name of participant = "+nameOfParticipant);
+            map.put(participantId , nameOfParticipant);
+            nameStoring.put(participantId , new ArrayList<String>());
+        }
+        return map;
+    }
 
     public static HashMap<String,  HashSet<String>> participantWiseOrdering(ArrayList<Integer> indexProcess , String processPart , String[] searchPatters){
         HashMap<String,  HashSet<String>> participantWiseOrdering = new HashMap<>();
@@ -368,6 +389,7 @@ class Split{
             currentPetriNetNode.setCardinality(currGraph.getCardinality());
             currentPetriNetNode.setId(currNode);
             currentPetriNetNode.setIsTimerEvent(currGraph.getIsTimerEvent());
+            currentPetriNetNode.setKind(currGraph.getKind());
             
             // if(currGraph.getTaskType() == 2 && currGraph.getCardinality() > 1)parallelMultinstance.add(currNode);
             // if(currGraph.getTaskType() == 3 && currGraph.getCardinality() > 1)sequentialMultinstanceLoop.add(currNode);
@@ -417,7 +439,11 @@ class Split{
                 // get incoming place of already visited transition and then point our current transition to incoming place of outgoing transition 
                 // this case is possible in loop back in parallel gateway to transitions
                 if(curr_type == 1 && runningNode_type == 1){
-                    if(visited.contains(runningNode)){
+                    if(visited.contains(runningNode) &&   runningGraph.getKind().contains("task") && currGraph.getKind().contains("task")  ){
+                        // runningGraph.getKind().contains("exclusiveGateway")
+                        // Utility.color("blue");
+                        // System.out.println("current node "+currNode+"  "+currGraph.getName()+"  running node "+runningNode+"   "+runningGraph.getName());
+                        // Utility.color("reset");
                         ArrayList<String> incomingNodesRunningNode = runningPetriNetNode.getIncomingNodes();//as it was transition then incoming nodes will be places
                         ArrayList<String> incomingNodesRunningNodeEdges = runningPetriNetNode.getOutgoingEdgesName();
                         // ArrayList<Integer> incomingEdgesRunningNode = runningPetriNetNode.getIncomingEdges();//as it was transition then incoming nodes will be places
@@ -439,6 +465,7 @@ class Split{
                         
                     }
                     else{
+                       
                         PetriNetNode Eplace = new PetriNetNode();
                         Eplace.setisEPlace();
                         Eplace.setName("E"+Enodes);
@@ -449,7 +476,10 @@ class Split{
                         // march 30
                         // adding type on basis of current and running node edges
                         currentPetriNetNode.setOutgoingEdges(edgeType);
-                        currentPetriNetNode.setOutgoingEdgesName("");//setting empty to avoid extra or less names i.e. the data should match with other edges
+                        if(edgeName < outgoingEdgesCurrNodeNames.size())
+                        currentPetriNetNode.setOutgoingEdgesName(outgoingEdgesCurrNodeNames.get(edgeName++));//setting empty to avoid extra or less names i.e. the data should match with other edges
+                        else 
+                        currentPetriNetNode.setOutgoingEdgesName("");
 
                         Eplace.setOutgoingNodes(runningNode);//add this transition as outgoing transition to current Eplace
                         Eplace.setIncomingNode(currNode);//for this Eplace the incoing node is currentNode
@@ -464,7 +494,9 @@ class Split{
                 }
                 //current type is transition and running node type is place
                 else if(curr_type == 1 && runningNode_type == 0){
-
+                    // Utility.color("red");
+                    // System.out.println("current node "+currNode+"  "+currGraph.getName()+"  running node "+runningNode+"   "+runningGraph.getName());
+                    // Utility.color("reset");
                     currentPetriNetNode.setOutgoingNodes(runningNode);
                     currentPetriNetNode.setOutgoingEdges(edgeType);//march 30
                     //added on jun1
@@ -477,8 +509,10 @@ class Split{
                 }
                 //current node is place and running node is transition
                 else if(curr_type == 0 && runningNode_type == 1){
-
-                    if(visited.contains(runningNode)){
+                    // Utility.color("red");
+                    // System.out.println("current node "+currNode+"  "+currGraph.getKind()+"  running node "+runningNode+"   "+runningGraph.getKind());
+                    // Utility.color("reset");
+                    if(visited.contains(runningNode) && ( runningGraph.getKind().contains("exclusiveGateway") || runningGraph.getKind().contains("task")  ) ){
                         ArrayList<String> incomingNodesRunningNode = runningPetriNetNode.getIncomingNodes();//as it was transition then incoming nodes will be places
                         //there will be edge from currNode to all these incomingNodes of running Node
                         //march 30
@@ -517,6 +551,9 @@ class Split{
                         }
                     }
                     else{
+                    // Utility.color("red");
+                    // System.out.println("current node "+currNode+"  "+currGraph.getName()+"  running node "+runningNode+"   "+runningGraph.getName());
+                    // Utility.color("reset");
                         currentPetriNetNode.setOutgoingNodes(runningNode);
                         currentPetriNetNode.setOutgoingEdges(edgeType);//march 30
                         if(edgeName < outgoingEdgesCurrNodeNames.size())
@@ -534,6 +571,9 @@ class Split{
                     Etransition.setName("E"+Enodes);
                     petrinet.put(Etransition.getName() , Etransition);//add this Eplace into petri net nodes
                     currentPetriNetNode.setOutgoingNodes(Etransition.getName()); //add (Eplace) this node as outgoing node to current petri net transition 
+                    if(edgeName < outgoingEdgesCurrNodeNames.size())
+                    currentPetriNetNode.setOutgoingEdgesName(outgoingEdgesCurrNodeNames.get(edgeName++));
+                    else
                     currentPetriNetNode.setOutgoingEdgesName("");
                     Etransition.setOutgoingNodes(runningNode);//add this transition as outgoing transition to current Eplace
                     Etransition.setIncomingNode(currNode);
@@ -577,7 +617,7 @@ class Split{
             int endIndex = !endingPattern.equals("/>") ? value.indexOf(endingPattern) : getIndex(endingPattern , startIndex , value);
             String substring = value.substring(startIndex , endIndex);
             
-            String[][] arr = new String[6][3];//here  5 denotes properties which we will be extracting 
+            String[][] arr = new String[7][3];//here  5 denotes properties which we will be extracting 
             int index = 0;
             for(int i = 0;i < 4;i++){
                 // System.out.print(ele[0]+"  ");
@@ -605,6 +645,10 @@ class Split{
             // printValues(arr);
             arr[index-1][0] = properties[index-1][0];
             arr[index-1][1] = substring.contains(properties[index-1][0]) == true ? "YES" : "NO";
+            arr[index][0] = pattern;
+            // Utility.color("green");
+            // System.out.println(substring+"  pattern is "+pattern+"  ");
+            // Utility.color("reset");
             createGraph(arr, map);
             // printGraph();
             // System.out.println();
@@ -802,6 +846,7 @@ class Split{
             System.out.println(key);
             Utility.color("reset");
             System.out.println("name = "+value.name);
+            System.out.println("kind of element = "+value.getKind());
             System.out.println("incoming Nodes = "+value.getIncomingNodes());
             System.out.println("incoming Edges = "+value.getIncomingEdges());
             System.out.println("outgoing Node = "+value.getOutgoingNodes());
@@ -836,6 +881,11 @@ class Split{
             if(prop.contains("id") && arr[2][1].length() == 0){
                 map.put(values , new Graph());
                 map.get(values).setPetriNetStyle(Integer.parseInt(type));
+                String str = arr[arr.length - 1][0];
+                if(str.length() == 0)
+                map.get(values).setKind("participant");
+                else
+                map.get(values).setKind(arr[arr.length-1][0]);
             }
             else if(prop.contains("name") && map.containsKey(arr[0][1])){
                 if(values.length() == 0)
@@ -845,19 +895,29 @@ class Split{
             }
             //setting outgoing nodes for each element
             else if(prop.contains("sourceRef") && values.length() > 0 && map.containsKey(values)){
+                // String strKind = map.get(arr[0][1]) == null || map.get(arr[0][1]).getKind() == null ? "" : map.get(arr[0][1]).getKind() ;
+                // if(strKind.length() == 0)
+                // map.get(arr[0][1]).setKind("participant");
+                // System.out.println("Setting values on basis of values "+strKind);
                 if(arr[i+1][1].contains("Participant")){
                     Graph ob = new Graph();
-                    ob.setName("participant"+participants);
+                    String name = refMapParticipant.get(arr[i+1][1])+""+participants;
+                    ob.setName(name);
+                    ob.setKind("participant");
                     ob.setIncomingNode(values);
                     ob.setIncomingEdges(-1);//it is message flow type
                     ob.setPetriNetStyle(1);//it is transition
                     // map.remove(arr[0][1]);
                     // break;
-                    map.get(values).setOutgoingNodes("participant"+participants);
+                    System.out.println("name is "+name+"  kind is = "+ob.getKind());
+                    map.get(values).setOutgoingNodes(name);
                     map.get(values).setOutgoingEdges(-1);
                     map.get(values).setOutgoingEdgesName(arr[i-1][1]);
-                    if(!map.containsKey("participant"+participants))participantOccurence.add("participant"+participants);
-                    map.put("participant"+participants , ob);
+                    if(!map.containsKey(name)){
+                        participantOccurence.add(name);
+                        nameStoring.get(arr[i+1][1]).add(name);
+                    }
+                    map.put(name , ob);
                     
                     participants++;
                 }
@@ -913,17 +973,23 @@ class Split{
             else if(prop.contains("targetRef") && values.length() > 0 && map.containsKey(values)){
                 if(arr[i-1][1].contains("Participant")){
                     Graph ob = new Graph();
-                    ob.setName("participant"+participants);
+                    System.out.println("name of the participant is "+arr[i-1][1]);
+                    String name = refMapParticipant.get(arr[i-1][1])+""+participants;
+                    ob.setName(name);
+                    ob.setKind("participant");
                     ob.setOutgoingNodes(values);
                     ob.setOutgoingEdges(-1);//it is message flow type
                     map.get(values).setOutgoingEdgesName(arr[i-2][1]);
                     ob.setPetriNetStyle(1);//it is transition
                     // map.remove(arr[0][1]);
                     // break;
-                    map.get(values).setIncomingNode("participant"+participants);
+                    map.get(values).setIncomingNode(name);
                     map.get(values).setIncomingEdges(-1);
-                    if(!map.containsKey("participant"+participants))participantOccurence.add("participant"+participants);
-                    map.put("participant"+participants , ob);
+                    if(!map.containsKey(name)){
+                        participantOccurence.add(name);
+                        nameStoring.get(arr[i-1][1]).add(name);
+                    }
+                    map.put(name , ob);
                     participants++;
                     
                 }
