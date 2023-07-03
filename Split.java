@@ -852,7 +852,7 @@ class Split{
             System.out.println("outgoing Node = "+value.getOutgoingNodes());
             System.out.println("outgoing Edges = "+value.getOutgoingEdges());
             System.out.println("outgoing Edges Names = "+value.getOutgoingEdgesName());
-            System.out.println("Sizes of list are equal  = "+(value.getOutgoingEdgesName().size() == value.getOutgoingNodes().size() && value.getOutgoingNodes().size() == value.getOutgoingEdges().size()));
+            // System.out.println("Sizes of list are equal  = "+(value.getOutgoingEdgesName().size() == value.getOutgoingNodes().size() && value.getOutgoingNodes().size() == value.getOutgoingEdges().size()));
             System.out.println("values of list are  = "+(value.getOutgoingEdgesName().size() +"  "+ value.getOutgoingNodes().size()+" "+ value.getOutgoingEdges().size()));
             System.out.println("Petri Net style = "+value.getPetriNetStyle());
             System.out.println("type of task = "+value.getTaskType());
@@ -909,7 +909,7 @@ class Split{
                     ob.setPetriNetStyle(1);//it is transition
                     // map.remove(arr[0][1]);
                     // break;
-                    System.out.println("name is "+name+"  kind is = "+ob.getKind());
+                    // System.out.println("name is "+name+"  kind is = "+ob.getKind());
                     map.get(values).setOutgoingNodes(name);
                     map.get(values).setOutgoingEdges(-1);
                     map.get(values).setOutgoingEdgesName(arr[i-1][1]);
@@ -973,7 +973,7 @@ class Split{
             else if(prop.contains("targetRef") && values.length() > 0 && map.containsKey(values)){
                 if(arr[i-1][1].contains("Participant")){
                     Graph ob = new Graph();
-                    System.out.println("name of the participant is "+arr[i-1][1]);
+                    // System.out.println("name of the participant is "+arr[i-1][1]);
                     String name = refMapParticipant.get(arr[i-1][1])+""+participants;
                     ob.setName(name);
                     ob.setKind("participant");

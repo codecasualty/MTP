@@ -33,6 +33,8 @@
 # done
 
 # dirs=( "${!seen[@]}" ) 
+sudo apt install dmenu
+sudo apt-get install rofi
 rm *.class
 javac Split.java
 allfiles="$(find . -iname "*.bpmn")"

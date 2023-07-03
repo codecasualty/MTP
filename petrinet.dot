@@ -3,78 +3,124 @@ digraph D {
  size="19,12" ; 
  ratio="fill";
  fontsize="20" 
-;EndEvent_1ljaooz_ [shape = circle ,label= "" , xlabel="EndEvent_1ljaooz__
+;task_b4_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+b4_
  " ] ;
-E3_ [shape = circle ,label= "" , xlabel="E3__
+task_b6_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+b6_
  " ] ;
-VIP_Customer1_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="VIP_
-Customer1_
+task_a4_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+a4_
  " ] ;
-Handle_1st_level_issue_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Handle_
-1st_
-level_
-issue_
+E13_ [shape = circle ,label= "" , xlabel="E13__
  " ] ;
-Question_Received_ [shape = circle ,label= "" , xlabel="Question_Received__
+E2_ [shape = circle ,label= "" , xlabel="E2__
  " ] ;
-ExclusiveGateway_1feb6ju_ [shape = circle ,label= "" , xlabel="ExclusiveGateway_1feb6ju__
+task_b8_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+b8_
  " ] ;
-E1_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="E1_
+task_a6_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+a6_
  " ] ;
-E2_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="E2_
+task_b7_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+b7_
  " ] ;
-Unsure_ [shape = circle ,label= "" , xlabel="Unsure__
+Start_A_ [shape = circle ,label= "" , xlabel="Start_A__
  " ] ;
-E4_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="E4_
+Start_B_ [shape = circle ,label= "" , xlabel="Start_B__
  " ] ;
-Finished_ [shape = circle ,label= "" , xlabel="Finished__
+E8_ [shape = circle ,label= "" , xlabel="E8__
  " ] ;
-Explain_Solution_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Explain_
-Solution_
+E4_ [shape = circle ,label= "" , xlabel="E4__
  " ] ;
-Handle_2nd_Level_Issue_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Handle_
-2nd_
-Level_
-Issue_
+E1_ [shape = circle ,label= "" , xlabel="E1__
  " ] ;
-handle_Question_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="handle_
-Question_
+task_b5_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+b5_
  " ] ;
-StartEvent0_ [shape = circle ,label= "" , xlabel="StartEvent0__
+end_a_ [shape = circle ,label= "" , xlabel="end_a__
  " ] ;
-Provide_Feedback_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Provide_
-Feedback_
+Task_b1_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Task_
+b1_
+ " ] ;
+E11_ [shape = circle ,label= "" , xlabel="E11__
+ " ] ;
+task_a5_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+a5_
+ " ] ;
+E6_ [shape = circle ,label= "" , xlabel="E6__
+ " ] ;
+E12_ [shape = circle ,label= "" , xlabel="E12__
+ " ] ;
+E7_ [shape = circle ,label= "" , xlabel="E7__
+ " ] ;
+task_a7_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+a7_
+ " ] ;
+task_b2_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+b2_
+ " ] ;
+E14_ [shape = circle ,label= "" , xlabel="E14__
+ " ] ;
+E10_ [shape = circle ,label= "" , xlabel="E10__
+ " ] ;
+end_b_ [shape = circle ,label= "" , xlabel="end_b__
+ " ] ;
+intermediate_b3_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="intermediate_
+b3_
+ " ] ;
+E5_ [shape = circle ,label= "" , xlabel="E5__
+ " ] ;
+task_a1_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+a1_
  " ] ;
 E0_ [shape = circle ,label= "" , xlabel="E0__
  " ] ;
-VIP_Customer0_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="VIP_
-Customer0_
+E3_ [shape = circle ,label= "" , xlabel="E3__
  " ] ;
-Can_handle_myself_ [shape = circle ,label= "" , xlabel="Can_handle_myself__
+E9_ [shape = circle ,label= "" , xlabel="E9__
  " ] ;
-EndEvent0_ [shape = circle ,label= "" , xlabel="EndEvent0__
+task_a2_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+a2_
  " ] ;
-E3_-> { VIP_Customer1_}
-VIP_Customer1_-> { EndEvent0_}
-Handle_1st_level_issue_-> { Finished_}
-Question_Received_-> { handle_Question_}
-ExclusiveGateway_1feb6ju_-> { Explain_Solution_}
-E1_-> { ExclusiveGateway_1feb6ju_}
-E2_-> { ExclusiveGateway_1feb6ju_}
-Unsure_-> { Provide_Feedback_}[label = "yes"];
-Unsure_-> { E4_}[label = "no"];
-E4_-> { ExclusiveGateway_1feb6ju_}
-Finished_-> { Handle_2nd_Level_Issue_}[label = "No"];
-Finished_-> { E2_}[label = "yes"];
-Explain_Solution_-> { EndEvent_1ljaooz_}
-Explain_Solution_-> { E3_}[style = dashed]
-Handle_2nd_Level_Issue_-> { Unsure_}
-handle_Question_-> { Can_handle_myself_}
-StartEvent0_-> { VIP_Customer0_}
-Provide_Feedback_-> { ExclusiveGateway_1feb6ju_}
-E0_-> { VIP_Customer1_}
-VIP_Customer0_-> { Question_Received_}[style = dashed]
-VIP_Customer0_-> { E0_}
-Can_handle_myself_-> { Handle_1st_level_issue_}[label = "No"];
-Can_handle_myself_-> { E1_}[label = "yes"];
+intermediate_a3_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="intermediate_
+a3_
+ " ] ;
+task_b4_-> { E9_}
+task_b6_-> { E14_}
+task_a4_-> { E7_}
+task_a4_-> { E8_}[style = dashed]
+E13_-> { task_b8_}
+E2_-> { intermediate_a3_}
+task_b8_-> { end_b_}
+task_a6_-> { E12_}
+task_a6_-> { E13_}[style = dashed]
+task_b7_-> { E13_}
+task_b7_-> { E7_}[style = dashed]
+Start_A_-> { task_a1_}
+Start_B_-> { Task_b1_}
+E8_-> { intermediate_b3_}
+E4_-> { intermediate_a3_}
+E1_-> { task_b2_}
+task_b5_-> { E11_}
+Task_b1_-> { E1_}
+E11_-> { task_b6_}
+task_a5_-> { E10_}
+E6_-> { task_b4_}
+E12_-> { task_a7_}
+E7_-> { task_a5_}
+task_a7_-> { end_a_}
+task_b2_-> { E3_}
+task_b2_-> { E4_}[style = dashed]
+E14_-> { task_b7_}
+E10_-> { task_a6_}
+intermediate_b3_-> { E6_}
+E5_-> { task_a4_}
+task_a1_-> { E0_}
+E0_-> { task_a2_}
+E3_-> { intermediate_b3_}
+E9_-> { task_b5_}
+task_a2_-> { E2_}
+task_a2_-> { Start_B_}[style = dashed]
+intermediate_a3_-> { E5_}
 }

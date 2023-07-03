@@ -3,66 +3,83 @@ digraph D {
  size="19,12" ; 
  ratio="fill";
  fontsize="15" 
-;EndEvent_1ljaooz_ [shape = doublecircle,style=filled ,label= "", xlabel="EndEvent_1ljaooz_
+;task_b4_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+b4_
+ " ] ;
+task_b6_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+b6_
+ " ] ;
+task_b5_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+b5_
+ " ] ;
+end_a_ [shape = doublecircle,style=filled ,label= "", xlabel="end_
+a_
  "  , fillcolor=black] ;
-VIP_Customer1_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="VIP_
-Customer1_
+task_a4_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+a4_
  " ] ;
-Handle_1st_level_issue_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Handle_
-1st_
-level_
-issue_
+Task_b1_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Task_
+b1_
  " ] ;
-Question_Received_ [shape = circle ,label= "" , xlabel="Question_
-Received_
+task_a5_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+a5_
  " ] ;
-ExclusiveGateway_1feb6ju_ [shape = diamond ,label= "", xlabel="ExclusiveGateway_1feb6ju_
+task_b8_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+b8_
  " ] ;
-Unsure_ [shape = diamond ,label= "", xlabel="Unsure_
+task_a6_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+a6_
  " ] ;
-Finished_ [shape = diamond ,label= "", xlabel="Finished_
+task_a7_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+a7_
  " ] ;
-Explain_Solution_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Explain_
-Solution_
+task_b2_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+b2_
  " ] ;
-Handle_2nd_Level_Issue_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Handle_
-2nd_
-Level_
-Issue_
+task_b7_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+b7_
  " ] ;
-handle_Question_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="handle_
-Question_
+Start_A_ [shape = circle ,label= "" , xlabel="Start_
+A_
  " ] ;
-StartEvent0_ [shape = circle ,label= "" , xlabel="StartEvent0_
- " ] ;
-Provide_Feedback_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="Provide_
-Feedback_
- " ] ;
-VIP_Customer0_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="VIP_
-Customer0_
- " ] ;
-Can_handle_myself_ [shape = diamond ,label= "", xlabel="Can_
-handle_
-myself_
- " ] ;
-EndEvent0_ [shape = doublecircle,style=filled ,label= "", xlabel="EndEvent0_
+end_b_ [shape = doublecircle,style=filled ,label= "", xlabel="end_
+b_
  "  , fillcolor=black] ;
-VIP_Customer1_-> { EndEvent0_}
-Handle_1st_level_issue_-> { Finished_}
-Question_Received_-> { handle_Question_}
-ExclusiveGateway_1feb6ju_-> { Explain_Solution_}
-Unsure_-> { Provide_Feedback_}[label = "yes_"];
-Unsure_-> { ExclusiveGateway_1feb6ju_}[label = "no_"];
-Finished_-> { Handle_2nd_Level_Issue_}[label = "No_"];
-Finished_-> { ExclusiveGateway_1feb6ju_}[label = "yes_"];
-Explain_Solution_-> { EndEvent_1ljaooz_}
-Explain_Solution_-> { VIP_Customer1_}[style = dashed]
-Handle_2nd_Level_Issue_-> { Unsure_}
-handle_Question_-> { Can_handle_myself_}
-StartEvent0_-> { VIP_Customer0_}
-Provide_Feedback_-> { ExclusiveGateway_1feb6ju_}
-VIP_Customer0_-> { Question_Received_}[style = dashed]
-VIP_Customer0_-> { VIP_Customer1_}
-Can_handle_myself_-> { Handle_1st_level_issue_}[label = "No_"];
-Can_handle_myself_-> { ExclusiveGateway_1feb6ju_}[label = "yes_"];
+intermediate_b3_ [shape = doublecircle,style=filled ,label= "", xlabel="intermediate_
+b3_
+ " ] ;
+Start_B_ [shape = circle ,label= "" , xlabel="Start_
+B_
+ " ] ;
+task_a1_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+a1_
+ " ] ;
+task_a2_ [ shape = box ,style=filled,height= 0.4,label= "", xlabel="task_
+a2_
+ " ] ;
+intermediate_a3_ [shape = doublecircle,style=filled ,label= "", xlabel="intermediate_
+a3_
+ " ] ;
+task_b4_-> { task_b5_}
+task_b6_-> { task_b7_}
+task_b5_-> { task_b6_}
+task_a4_-> { task_a5_}
+task_a4_-> { intermediate_b3_}[style = dashed]
+Task_b1_-> { task_b2_}
+task_a5_-> { task_a6_}
+task_b8_-> { end_b_}
+task_a6_-> { task_a7_}
+task_a6_-> { task_b8_}[style = dashed]
+task_a7_-> { end_a_}
+task_b2_-> { intermediate_b3_}
+task_b2_-> { intermediate_a3_}[style = dashed]
+task_b7_-> { task_b8_}
+task_b7_-> { task_a5_}[style = dashed]
+Start_A_-> { task_a1_}
+intermediate_b3_-> { task_b4_}
+Start_B_-> { Task_b1_}
+task_a1_-> { task_a2_}
+task_a2_-> { intermediate_a3_}
+task_a2_-> { Start_B_}[style = dashed]
+intermediate_a3_-> { task_a4_}
 }

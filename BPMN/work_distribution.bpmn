@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" id="Definitions_108ndgj" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="2.2.4">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_108ndgj" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="2.2.4">
   <bpmn:collaboration id="Collaboration_17815vn">
     <bpmn:participant id="Participant_0s3kw84" name="Flat Sharing Community" processRef="Process_1" />
   </bpmn:collaboration>
@@ -32,7 +32,9 @@
     </bpmn:task>
     <bpmn:sequenceFlow id="SequenceFlow_0p73csl" sourceRef="StartEvent_0moc41q" targetRef="Task_0jpzc2e" />
     <bpmn:sequenceFlow id="SequenceFlow_1ilmnsx" sourceRef="Task_0jpzc2e" targetRef="ExclusiveGateway_07jwci4" />
-    <bpmn:sequenceFlow id="SequenceFlow_0rvpfpu" name="warm food" sourceRef="ExclusiveGateway_07jwci4" targetRef="ExclusiveGateway_1gp7iiu" />
+    <bpmn:sequenceFlow id="SequenceFlow_0rvpfpu" name="warm food" sourceRef="ExclusiveGateway_07jwci4" targetRef="ExclusiveGateway_1gp7iiu">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_08r5e1u" name="pasta" sourceRef="ExclusiveGateway_1gp7iiu" targetRef="Task_1cy69a7" />
     <bpmn:sequenceFlow id="SequenceFlow_1aczftg" sourceRef="Task_1cy69a7" targetRef="ExclusiveGateway_0hw25t1" />
     <bpmn:sequenceFlow id="SequenceFlow_03tzcao" sourceRef="ExclusiveGateway_0hw25t1" targetRef="ExclusiveGateway_19bzoa8" />

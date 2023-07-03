@@ -1,9 +1,3 @@
-/**
- * ROFI Color theme
- * NAME: dt-center.rasi
- * DESCRIPTION: This is a centered prompt.
- * AUTHOR: Derek Taylor (DT)
- */
 
 * {
     background-color:            #282c34;
@@ -88,12 +82,4 @@ element-text {
     background-color: inherit;
     text-color:       inherit;
 }
-
-/* Not actually relevant for this configuration, but it might
-be useful to someone having issues with their icons' background color
-
-element-icon {
-    background-color: inherit;
-}
-*/
 

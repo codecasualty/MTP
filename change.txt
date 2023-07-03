@@ -1,2 +1,0 @@
-25 diagram is same as 1 but generated petri net is not same
-and 5 is also same as 1 but it has t-p-t error need to solve it
